@@ -498,7 +498,7 @@ public function dynamicUpiCallback(Request $request)
             if (!$exists) {
                 Log::info("Processing new transaction: {$txnId} for user: {$userName}");
 
-                $amount = number_format((float) $queryData['value_coin'], 2, '.', '');
+                $amount = number_format((float) $queryData['value'], 2, '.', '');
                 $blockchain = $queryData['coin'] === 'bep20_usdt' ? 'USDT_BSC' : 'USDT_TRON';
 
                 $user = User::where('username', $userName)->first();
@@ -529,11 +529,7 @@ public function dynamicUpiCallback(Request $request)
                 $total = $users->package+$amount;
                   $user_update=array('package'=>$total,'active_status'=>'Active',);
                 User::where('id',$user->id)->update($user_update); 
-               }
-              
-             
-
-                
+               }                
                 // Insert investment
                 Investment::insert([
                     'plan' => 1,
@@ -572,10 +568,7 @@ public function dynamicUpiCallback(Request $request)
                 
                     // Log::info("Processing new transaction: {$txnId} for user: {$userName}");
                 
-                 addNotification(
-            $user->id,
-            'Deposit Success',
-            "You’ve successfully deposited {$amount}");
+                 
             }
         }
 

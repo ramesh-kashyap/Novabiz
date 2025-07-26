@@ -510,7 +510,7 @@ return true;
                         $rank=$Sposnor_status->rank;
                         $lastPackage = \DB::table('investments')->where('user_id',$Sposnor_status->id)->where('status','Active')->orderBy('id','DESC')->limit(1)->first();
                         $plan = ($lastPackage)?$lastPackage->plan:0;
-                        $vip = getVip($Sposnor_status->id);
+                        $vip = getVip(user_id: $Sposnor_status->id);
                       }
                       else
                       {
@@ -522,23 +522,23 @@ return true;
                       }
 
                       $pp=0;
-                       if($sp_status=="Active" && $vip>=2)
+                       if($sp_status=="Active" && $Sposnor_cnt>=1)
                        {
                          if($cnt==1)
                           {
-                            $pp= $amount*8;
+                            $pp= $amount*20;
 
                           } if($cnt==2)
                           {
-                            $pp= $amount*6;
+                            $pp= $amount*15;
 
                           } if($cnt==3)
                           {
-                            $pp= $amount*4;
+                            $pp= $amount*10;
 
                           }  if($cnt==4)
                           {
-                            $pp = $amount * 2;
+                            $pp = $amount * 5;
 
                           }  if($cnt==5)
                           {
@@ -574,8 +574,6 @@ return true;
 
                     ];
                      $user_data =  Income::create($data);
-
-
                 }
                }
 
@@ -720,7 +718,7 @@ $user_mid = $data->id;
 
               $user_mid = @$Sposnor_status->id;
               //echo $user_id;
-             //die;
+              //die;
               $idate = date("Y-m-d");
 
               $spid = @$Sposnor_status->id;
@@ -739,8 +737,8 @@ $user_mid = $data->id;
                 'level' => $cnt,
                 'rname' => $rname,
                 'fullname' => $fullname,
-                'ttime' => $newDate,
-                'created_at' => $newDateTime,
+                'ttime' => Carbon::now(),
+                'created_at' => Carbon::now(),
 
             ];
             $user_data =  Income::Create($data);
