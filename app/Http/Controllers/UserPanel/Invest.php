@@ -366,6 +366,84 @@ public function index()
     }
 }
 
+  public function inputScannerDeposit(Request $request)
+{
+    try {
+        $user = Auth::user();
+
+        if (!$user->email) {
+            return response()->json(['error' => 'Bind your email first from settings'], 400);
+        }
+
+        $amount = $request->input('amount');
+        $method = $request->input('method');
+        $amountTotal = $amount;
+
+        // Determine payment mode and wallet
+        $paymentMode = $method === "USDT BEP20" ? "bep20/usdt" : "trc20/usdt";
+        $wallet = $method === "USDT BEP20"
+            ? "0x0781C21f44a81f9aBb25AEDB935Ff909272e87b3"
+            : "TMLTxoLZWbgXBf8iNhXtMkmbtLCwLQiq5w";
+
+        Log::info('Wallet: ' . $wallet);
+
+        // Generate invoice number
+        $invoice = mt_rand(1000000, 9999999);
+        $refid = $user->username;
+
+        $callbackUrl = "https://api.hypermesh.io/api/auth/cryptapi-upi-callback?refid={$refid}";
+        $apiUrl = "https://api.cryptapi.io/{$paymentMode}/create/?callback={$callbackUrl}&address={$wallet}&pending=0&confirmations=1&email=rameshkashyap8801@gmail.com&post=0&priority=default&multi_token=0&multi_chain=0&convert=0";
+
+        $response = Http::get($apiUrl);
+        if ($response->successful() && $response['status'] === 'success') {
+            $resultData = $response->json();
+
+            $qrCode = $this->getQrCode($resultData, $amountTotal, $paymentMode);
+            //  Investment::create([
+            //     'user_id' => $user->id,
+            //     'user_id_fk' => $user->username,
+            //     'amount' => $amountTotal,
+            //     'status' => "Pending",
+            //     'peyment_mode' => $method,
+            // ]);
+            return response()->json([
+                'success' => true,
+                'walletAddress' => $resultData['address_in'],
+                'method' => $method,
+                'qr_code' => $qrCode['qr_code'] ?? null,
+                'amount' => $amountTotal,
+            ]);
+        } else {
+            return response()->json(['error' => $response->json()], 400);
+        }
+    } catch (\Exception $e) {
+        return response()->json([
+            'success' => false,
+            'error' => 'Internal server error',
+            'details' => $e->getMessage()
+        ], 500);
+    }
+}
+
+public function getQrCode($data, $amount, $paymentMode)
+{
+    $query = http_build_query([
+        'address' => $data['address_in'],
+        'value' => $amount,
+        'size' => '512',
+    ]);
+
+    $url = "https://api.cryptapi.io/{$paymentMode}/qrcode/?{$query}";
+
+    try {
+        $response = Http::get($url);
+        return $response->json();
+    } catch (\Exception $e) {
+        Log::error('Error fetching QR code: ' . $e->getMessage());
+        return null;
+    }
+}
+
   public function confirmDeposit_new(Request $request)
   {
     try {
