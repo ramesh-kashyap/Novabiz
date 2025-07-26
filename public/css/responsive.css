@@ -1,0 +1,200 @@
+/*================
+Template Name: Applex - Mobile App Landing Page Template
+Description: Mobile App Landing Page Template
+Version: 1.0
+Author: https://www.templatemonster.com/authors/techeshta
+=======================*/
+
+@media screen and (max-width: 992px) {
+    #mainNav {
+        padding: 0;
+    }
+
+    #mainNav .container {
+        max-width: 100%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    #mainNav .container .navbar-brand {
+        padding-left: 20px;
+    }
+
+    #mainNav .container .navbar-toggler {
+        padding-right: 20px;
+    }
+
+    #mainNav .navbar-nav>li>a {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    #mainNav.navbar-shrink {
+        border-color: rgba(34, 34, 34, .1);
+        background-color: #fff;
+    }
+
+    .feature-media {
+        margin-bottom: 50px;
+        text-align: center;
+    }
+
+    .download-btn {
+        margin-bottom: 10px;
+    }
+
+    .footer-top-link {
+        width: auto;
+    }
+
+    .copyright p,
+    .footer-bottom-link {
+        text-align: center !important;
+    }
+
+    .copyright {
+        margin-bottom: 15px;
+    }
+
+    .footer-about {
+        margin-bottom: 30px;
+    }
+
+    .clip-art-home {
+        clip-path: polygon(0 0, 100% 0, 100% 83%, 100% 93%, 0 100%);
+    }
+
+    .blog-sidebar {
+        margin-top: 30px;
+    }
+    
+    .app-download-media{
+        display: none;
+    }
+
+    .coming-soon h1 {
+        font-size: 80px;
+        line-height: 90px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .features-box {
+        text-align: center;
+        padding-left: 0px !important;
+    }
+
+    .features-box .icon-shape {
+        position: relative !important;
+        margin-bottom: 15px;
+    }
+
+    .download-btn {
+        width: 100%;
+        padding: 12px 50px !important;
+    }
+
+    .faq-box .btn-link {
+        padding: 1.25rem !important;
+    }
+
+    .faq-box .btn-link::before {
+        display: none;
+    }
+
+    .footer-top-link {
+        float: left !important;
+    }
+
+    .counter-box {
+        text-align: center;
+    }
+
+    .footer-bottom-link li {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .back-to-top {
+        right: 15px;
+        bottom: 15px;
+    }
+
+    .single-comment.replay-comment {
+        margin-left: 0px;
+    }
+
+    .post-share {
+        text-align: left;
+        margin-top: 30px;
+    }
+
+    .post-share li {
+        margin-left: 0px;
+    }
+
+    .post-details-meta li {
+        margin-right: 5px;
+    }
+
+    .post-details-meta li a {
+        padding: 6px 8px;
+        margin-bottom: 5px;
+    }
+
+    .breadcrumb-menu li {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .breadcrumb-menu li a:after {
+        right: -5px;
+    }
+
+    .coming-soon h1 {
+        font-size: 40px;
+        line-height: 50px;
+        margin-bottom: 20px;
+    }
+
+    .coming-soon p {
+        font-size: 22px;
+        line-height: 32px;
+        letter-spacing: 0.2em;
+        margin-bottom: 30px;
+    }
+
+    .coming-soon .subscribe-form input {
+        height: 50px;
+    }
+
+    .coming-soon .subscribe-form .input-email {
+        width: calc(100% - 141px);
+        padding: 15px 10px;
+    }
+
+    .coming-soon .subscribe-form .btn-submit {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #mainNav .container {
+        padding-top: 1px;
+        padding-bottom: 1px;
+    }
+
+    #mainNav .container .navbar-brand img {
+        max-width: 80%;
+        width: 96px !important;
+        height: 68px !important;
+    }
+
+    #mainNav .navbar-nav>li>a {
+        padding-top: 4px;
+        padding-bottom: 4px;
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+}
