@@ -679,7 +679,7 @@ return true;
 function add_direct_income($id,$amt)
 {
 
-  //$user_id =$this->session->userdata('user_id_session')
+  //$user_id =$this->session->userdata('user_id_session');
 $data = User::where('id',$id)->orderBy('id','desc')->first();
 
 $user_id = $data->username;
