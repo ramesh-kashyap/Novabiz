@@ -706,7 +706,7 @@ $user_mid = $data->id;
                 $sp_status="Pending";
                 $Sposnor_cnt =0;
               }
-             $percent = 5;
+             $percent = 10;
 
              if($sp_status=="Active")
                {
