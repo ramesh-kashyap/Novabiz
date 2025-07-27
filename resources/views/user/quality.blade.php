@@ -396,18 +396,322 @@
 
 
                             </div>
-                            <!-- vip start from here  -->
-                            <div data-v-21b9e3ce="" class="van-swipe-item van-tab__panel-wrapper"
+                            <div data-v-21b9e3ce="" data-v-5a91a60a="" class="level-info">
+
+                                <?php
+                             $status = false;
+                              $trade = false;
+
+                              $u_id = Auth::user()->id;
+                                if (isset($_GET['trade'])) {
+                                $trade = true;
+                                $trade_row =  \DB::table('contract')->where('user_id',$u_id)->where('c_status',1)->orderBy('created_at','DESC')->first();
+                                if (!$trade_row) {
+                                    $status = true;
+                                }
+                                if ($status == true) {
+                                    header("Location: quality?notrade");
+                                    exit();
+                                };
+                              
+                                }
+                                                
+                          if ($trade) {
+                              
+                                $sql =  \DB::table('contract')->where('user_id',$u_id)->where('c_status',1)->orderBy('created_at','DESC')->get();
+                                $nums = $sql->count();
+                                if ($nums >= 1) {
+                                ?>
+                                <?php
+                                }
+                                    foreach ($sql as $key => $value) {
+                                    $updated_time = date("d M h:iA", strtotime($value->created_at));
+                                    $sym = strtoupper($value->c_name);
+                            ?>
+
+                                <div data-v-55773a97="" class="team-income">
+
+                                    <div data-v-55773a97="" class="income-center">
+                                        <div data-v-55773a97="" class="num"
+                                            style="    font-size: large;font-weight: 700;">
+                                            <?php echo $sym . 'USDT'; ?>
+                                        </div>
+                                        <a>
+                                            <div data-v-55773a97="" class="num"
+                                                style=" margin-right: 24px;color:green;font-size: large;font-weight: 700;"
+                                                id="profit"> <span class="counter text-success">
+                                                    <?php echo '+' . $value->profit . 'USD'; ?>
+                                                </span>
+                                            </div>
+                                    </div>
+                                    <div data-v-55773a97="" class="income-bot">
+                                        <div data-v-55773a97="" class="item">
+                                            <div data-v-55773a97="" class="val" style="color:<?php if ($value->trade == ' Buy') {
+                                                echo 'green';
+                                            } else {
+                                                echo 'red';
+                                            } ?>">
+                                                <?php
+                                                echo $value->trade; ?>
+                                            </div>
+                                            <div data-v-55773a97="" class="name">Position</div>
+                                        </div>
+                                        <div data-v-55773a97="" class="item">
+                                            <div data-v-55773a97="" class="val" id="price_"><span>
+                                                    <?php echo $value->c_buy; ?>
+                                                </span></div>
+                                            <div data-v-55773a97="" class="name">Entry-Price</div>
+                                        </div>
+                                        <div data-v-55773a97="" class="item">
+                                            <div data-v-55773a97="" class="val">
+                                                <?php echo $value->qty . ''; ?>
+                                            </div>
+                                            <div data-v-55773a97="" class="name">Quantity</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <?php };
+                                if ($nums <= 0) {
+                                  // echo "No Trades";
+                                };
+
+                                
+                            ?>
+
+                                <script src="https://code.jquery.com//jquery-3.3.1.min.js"></script>
+                                <script>
+                                    function pollServer() {
+                                        fetch("{{ route('manage-trade') }}")
+                                            .then(response => response.json()) // Parse JSON response
+                                            .then(data => {
+                                                if (!data.status) {
+                                                    document.getElementById('price_').innerHTML = `
+                                        <span class="counter">${data.btc_price}</span>
+                                        `;
+                                                    if (data.action == "incre") {
+                                                        document.getElementById('profit').innerHTML = `
+                                <span class="counter text-success">+${(data.profit/100).toFixed(5)} USDT</span>
+                                `;
+                                                    } else {
+                                                        document.getElementById('profit').innerHTML = `
+                                <span class="counter" style="color:#c42c2c">${(data.profit/100).toFixed(5)} USDT</span>
+                                `;
+                                                    }
+
+                                                    $('.quantify-execute').css('display', 'none')
+                                                } else {
+                                                    // exit
+                                                    $('.team-income').css('display', 'none')
+                                                    $('.quantify-execute').css('display', 'block')
+                                                }
+                                                setTimeout(pollServer, 10);
+                                            })
+                                            .catch((error) => {
+                                                console.error("Error polling server:", error);
+                                                // Retry polling after a delay (e.g., every 5 seconds)
+                                                setTimeout(pollServer, 6000);
+                                            });
+                                    }
+                                    pollServer();
+
+
+                                    function closetrade() {
+                                        fetch("{{ route('user.close-trade') }}").then(response => response.json()) // Parse JSON response
+                                            .then(data => {
+                                                if (data.status) {
+
+                                                    iziToast.success({
+                                                        message: 'Trade Closed Successfully',
+                                                        position: "topRight"
+                                                    });
+                                                    $('.quantify-execute').css('display', 'block')
+                                                    window.location.href = 'quality?notrade';
+
+                                                } else {
+                                                    // exit
+                                                    $('.team-income').css('display', 'none')
+                                                }
+                                                // setTimeout(pollServer, 500000);
+                                            })
+                                            .catch((error) => {
+                                                console.error("Error polling server:", error);
+                                                // Retry polling after a delay (e.g., every 5 seconds)
+                                                // 
+                                            });
+
+                                    }
+                                    setTimeout(closetrade, 20000);
+                                </script>
+
+                                <?php }?>
+
+
+
+                                <div data-v-21b9e3ce="" class="title container">
+                                    <div data-v-21b9e3ce="" class="le">VIP Level</div>
+                                    <div data-v-21b9e3ce="" class="ri">Collapse<img data-v-21b9e3ce=""
+                                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACWSURBVHgB7Y3bDUVAEEB31s2t5Mb31QkaQCdK0AEaQCd8oxKPJYQEIWb2S2RPstndZOYcxhSKd1H3djgdyg5gBxexu3yjn5Z4mD1U4CBnlMhtYCsXwxBPNwdwsBGgyPVPOr/LzoqwEaDKV7ARkJFTIiArx0Z2gbIx/1zjOVZ+FhG9MPRvVlwO160VVK3tMyKyewrFAxgBZLtnXf4kigkAAAAASUVORK5CYII=">
+                                    </div>
+                                </div>
+
+                                <style>
+                                    .level[data-v-43c558e5] {
+                                        position: relative;
+                                        width: 100%;
+                                        height: 2.5rem;
+                                        background: url(../assets/images/vip1-ByI5Ueay.png) center no-repeat;
+                                        background-size: 100% 100%;
+                                        opacity: .5;
+                                        color: #006443;
+                                        width: 6.7rem;
+                                    }
+
+                                    .level .levelicon[data-v-43c558e5] {
+                                        position: absolute;
+                                        top: -.24rem;
+                                        right: .16rem;
+                                        width: 2.4rem;
+                                        height: 1.96rem;
+                                    }
+
+                                    .level .level-name[data-v-43c558e5] {
+                                        padding: .72rem .4rem .18rem;
+                                        font-size: .8rem;
+                                        line-height: .8rem;
+                                    }
+
+                                    .level .test-tips.statuson1[data-v-43c558e5] {
+                                        background: linear-gradient(90deg, #fff5ec .42%, #8fcdb8 99.58%);
+                                    }
+
+                                    .level .test-tips[data-v-43c558e5] {
+                                        position: absolute;
+                                        top: 0;
+                                        left: .36rem;
+                                        height: .44rem;
+                                        line-height: .44rem;
+                                        padding: 0 .24rem 0 .16rem;
+                                        border-radius: 0 0 .16rem .16rem;
+                                    }
+
+                                    .level .level-updage[data-v-43c558e5] {
+                                        padding-left: .4rem;
+                                        display: flex;
+                                        font-size: .24rem;
+                                        line-height: .32rem;
+                                    }
+
+                                    .level .level-updage span[data-v-43c558e5] {
+                                        line-height: .32rem;
+                                        margin-right: .1rem;
+                                    }
+
+                                    [class^=icon-],
+                                    [class*=" icon-"] {
+                                        font-family: icomoon !important;
+                                        speak: never;
+                                        font-style: normal;
+                                        font-weight: 400;
+                                        font-variant: normal;
+                                        text-transform: none;
+                                        line-height: 1;
+                                        -webkit-font-smoothing: antialiased;
+                                        -moz-osx-font-smoothing: grayscale;
+                                    }
+
+                                    .level .icon-lock-close[data-v-43c558e5]:before {
+                                        color: #006443;
+                                    }
+
+
+                                    .icon-lock-open::before {
+                                        content: "";
+                                        color: rgb(39, 77, 58);
+                                    }
+
+                                    .icon-lock-close::before {
+                                        content: "";
+                                        color: rgb(39, 77, 58);
+                                    }
+
+                                    .level3[data-v-43c558e5] {
+                                        background: url(../assets/images/vip2-1pEutoXd.png) center no-repeat;
+                                        background-size: 100% 100%;
+                                        color: #2a457e;
+                                    }
+
+                                    .level .test-tips.status2[data-v-43c558e5] {
+                                        background: #90a4ce;
+                                    }
+
+                                    .level4[data-v-43c558e5] {
+                                        background: url(../assets/images/vip3-B1Jmsx_k.png) center no-repeat;
+                                        background-size: 100% 100%;
+                                        color: #0082c1;
+                                    }
+
+                                    .box .box-con .box-item .name[data-v-21b9e3ce] {
+                                        color: #473d3d;
+                                        font-size: .28rem;
+                                        font-style: normal;
+                                        font-weight: 400;
+                                        line-height: 1em;
+                                    }
+
+                                    .box[data-v-21b9e3ce] {
+                                        margin-top: .32rem;
+                                        border-radius: .32rem;
+                                        border: .02rem solid #bababa;
+                                        background: #fff;
+                                    }
+
+                                    .level.level5 {
+                                        position: relative;
+                                        height: 2.5rem;
+                                        opacity: 0.5;
+                                        color: rgb(134 78 33);
+                                        width: 6.7rem;
+                                        background: url(../assets/images/vip1-B2MtfqNG.png) center center / 100% 100% no-repeat;
+                                    }
+
+                                    .level.level6 {
+                                        position: relative;
+                                        height: 2.5rem;
+                                        opacity: 0.5;
+                                        color: rgb(134 88 251);
+                                        width: 6.7rem;
+                                        background: url(../assets/images/vip2-Ci3I9wqU.png) center center / 100% 100% no-repeat;
+                                    }
+
+                                    .box .box-title[data-v-21b9e3ce] {
+                                        color: #210c4a;
+                                        font-size: .28rem;
+                                        font-style: normal;
+                                        font-weight: 500;
+                                        line-height: 1em;
+                                        padding: .32rem 0rem .24rem;
+                                        border-bottom: .02rem solid #ebebeb;
+                                        margin: 0rem .32rem;
+                                    }
+                                </style>
+                                <div data-v-21b9e3ce="" class="van-tabs van-tabs--line">
+                                    <!---->
+                                    <div class="van-tabs__content van-tabs__content--animated">
+                                        <div class="van-swipe van-tabs__track">
+                                            <div class="van-swipe__track"
+                                                style="transition-duration: 0ms; transform: translateX(0px); width: 1000px;">
+                                                <div data-v-21b9e3ce="" class="van-swipe-item van-tab__panel-wrapper"
                                                     id="van-tab-2" role="tabpanel" tabindex="0"
                                                     aria-hidden="false" aria-labelledby="van-tabs-1-0"
                                                     style=" ">
                                                     <div class="van-tab__panel">
                                                         <div data-v-21b9e3ce="" class="container">
-                                                           @if (is_array($level_income) || is_object($level_income))
+                                                            @if (is_array($level_income) || is_object($level_income))
     @foreach ($level_income as $value)
         <div data-v-21b9e3ce="" class="box">
             <div data-v-21b9e3ce="" class="box-title">
-                @lang('Trade Income')
+                @lang('Qunatify Income')
             </div>
             <div data-v-21b9e3ce="" class="box-con">
                 <div data-v-21b9e3ce="" class="box-item">
@@ -453,6 +757,304 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div data-v-21b9e3ce="" class="van-swipe-item van-tab__panel-wrapper "
+                                                    id="van-tab-3" role="tabpanel" tabindex="-1" aria-hidden="true"
+                                                    aria-labelledby="van-tabs-1-1">
+                                                    <div class="van-tab__panel">
+                                                        <div data-v-21b9e3ce="" class="container">
+                                                            <div data-v-21b9e3ce="" class="box">
+                                                                <div data-v-21b9e3ce="" class="box-title">
+                                                                    @lang('VIP2
+                                                                                                                                        Upgrade conditions')</div>
+                                                                <div data-v-21b9e3ce="" class="box-con">
+                                                                    <div data-v-21b9e3ce="" class="box-item">
+                                                                        <div data-v-21b9e3ce="" class="name">
+                                                                            @lang('Effective amount')</div>
+                                                                        <div data-v-21b9e3ce="" class="val">
+                                                                            {{ number_format($balance) }}/500</div>
+                                                                    </div>
+                                                                    <div data-v-21b9e3ce="" class="box-item">
+                                                                        <div data-v-21b9e3ce="" class="name">
+                                                                            @lang('1st
+                                                                                                                                                        generation valid members')</div>
+                                                                        <div data-v-21b9e3ce="" class="val">
+                                                                            {{ $active_gen_team1total }}/3</div>
+                                                                    </div>
+                                                                    <div data-v-21b9e3ce="" class="box-item">
+                                                                        <div data-v-21b9e3ce="" class="name">
+                                                                            @lang('2nd + 3rd
+                                                                                                                                                        generation valid members')</div>
+                                                                        <div data-v-21b9e3ce="" class="val">
+                                                                            {{ $active_gen_team2total+$active_gen_team3total }}/5</div>
+                                                                    </div>
+                                                                   
+                                                                </div>
+                                                            </div>
+                                                            <div data-v-21b9e3ce="" class="box">
+                                                                <div data-v-21b9e3ce="" class="box-title">
+                                                                    @lang('VIP2
+                                                                                                                                        Benefits')
+                                                                </div>
+                                                                <div data-v-21b9e3ce="" class="box-con">
+                                                                    <div data-v-21b9e3ce="" class="box-item">
+                                                                        <div data-v-21b9e3ce="" class="name">
+                                                                            @lang('Minimum
+                                                                                                                                                        amount quantification')</div>
+                                                                        <div data-v-21b9e3ce="" class="val">500
+                                                                        </div>
+                                                                    </div>
+                                                                    <div data-v-21b9e3ce="" class="box-item">
+                                                                        <div data-v-21b9e3ce="" class="name">
+                                                                            @lang('Maximum
+                                                                                                                                                        amount quantification')</div>
+                                                                        <div data-v-21b9e3ce="" class="val">1999
+                                                                        </div>
+                                                                    </div>
+                                                                    <div data-v-21b9e3ce="" class="box-item">
+                                                                        <div data-v-21b9e3ce="" class="name">
+                                                                            @lang('Daily
+                                                                                                                                                        quantified times')</div>
+                                                                        <div data-v-21b9e3ce="" class="val">3 times
+                                                                        </div>
+                                                                    </div>
+                                                                    <div data-v-21b9e3ce="" class="box-item">
+                                                                        <div data-v-21b9e3ce="" class="name">
+                                                                            @lang('return on
+                                                                                                                                                        investment')</div>
+                                                                        <div data-v-21b9e3ce="" class="val">1%
+                                                                            -1.25%
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div data-v-21b9e3ce="" class="van-swipe-item van-tab__panel-wrapper"
+                                                    id="van-tab-4" role="tabpanel" tabindex="-1" aria-hidden="true"
+                                                    aria-labelledby="van-tabs-1-2">
+                                                    <div class="van-tab__panel">
+                                                        <div data-v-21b9e3ce="" class="container">
+                                                            <div data-v-21b9e3ce="" class="box">
+                                                                <div data-v-21b9e3ce="" class="box-title">
+                                                                    @lang('VIP3
+                                                                                                                                        Upgrade conditions')</div>
+                                                                <div data-v-21b9e3ce="" class="box-con">
+                                                                    <div data-v-21b9e3ce="" class="box-item">
+                                                                        <div data-v-21b9e3ce="" class="name">
+                                                                            @lang('Effective amount')</div>
+                                                                        <div data-v-21b9e3ce="" class="val">
+                                                                            {{ number_format($balance) }}/2000</div>
+                                                                    </div>
+                                                                    <div data-v-21b9e3ce="" class="box-item">
+                                                                        <div data-v-21b9e3ce="" class="name">
+                                                                            @lang('1st
+                                                                                                                                                        generation valid members')</div>
+                                                                        <div data-v-21b9e3ce="" class="val">
+                                                                            {{ $active_gen_team1total }}/6</div>
+                                                                    </div>
+                                                                    <div data-v-21b9e3ce="" class="box-item">
+                                                                        <div data-v-21b9e3ce="" class="name">
+                                                                            @lang('2nd + 3rd
+                                                                                                                                                        generation valid members')</div>
+                                                                        <div data-v-21b9e3ce="" class="val">
+                                                                            {{ $active_gen_team2total+$active_gen_team3total }}/12</div>
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div data-v-21b9e3ce="" class="box">
+                                                                <div data-v-21b9e3ce="" class="box-title">
+                                                                    @lang('VIP3
+                                                                                                                                        Benefits')
+                                                                </div>
+                                                                <div data-v-21b9e3ce="" class="box-con">
+                                                                    <div data-v-21b9e3ce="" class="box-item">
+                                                                        <div data-v-21b9e3ce="" class="name">
+                                                                            @lang('Minimum
+                                                                                                                                                        amount quantification')</div>
+                                                                        <div data-v-21b9e3ce="" class="val">2000
+                                                                        </div>
+                                                                    </div>
+                                                                    <div data-v-21b9e3ce="" class="box-item">
+                                                                        <div data-v-21b9e3ce="" class="name">
+                                                                            @lang('Maximum
+                                                                                                                                                        amount quantification')</div>
+                                                                        <div data-v-21b9e3ce="" class="val">4999
+                                                                        </div>
+                                                                    </div>
+                                                                    <div data-v-21b9e3ce="" class="box-item">
+                                                                        <div data-v-21b9e3ce="" class="name">
+                                                                            @lang('Daily
+                                                                                                                                                        quantified times')</div>
+                                                                        <div data-v-21b9e3ce="" class="val">4 times
+                                                                        </div>
+                                                                    </div>
+                                                                    <div data-v-21b9e3ce="" class="box-item">
+                                                                        <div data-v-21b9e3ce="" class="name">
+                                                                            @lang('return on
+                                                                                                                                                        investment')</div>
+                                                                        <div data-v-21b9e3ce="" class="val">1.25%
+                                                                            -1.5%
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div data-v-21b9e3ce="" class="van-swipe-item van-tab__panel-wrapper"
+                                                    id="van-tab-5" role="tabpanel" tabindex="-1" aria-hidden="true"
+                                                    aria-labelledby="van-tabs-1-3">
+                                                    <div class="van-tab__panel">
+                                                        <div data-v-21b9e3ce="" class="container">
+                                                            <div data-v-21b9e3ce="" class="box">
+                                                                <div data-v-21b9e3ce="" class="box-title">
+                                                                    @lang('VIP4
+                                                                                                                                        Upgrade conditions')</div>
+                                                                <div data-v-21b9e3ce="" class="box-con">
+                                                                    <div data-v-21b9e3ce="" class="box-item">
+                                                                        <div data-v-21b9e3ce="" class="name">
+                                                                            @lang('Effective amount')</div>
+                                                                        <div data-v-21b9e3ce="" class="val">
+                                                                            {{ number_format($balance) }}/5000</div>
+                                                                    </div>
+                                                                    <div data-v-21b9e3ce="" class="box-item">
+                                                                        <div data-v-21b9e3ce="" class="name">
+                                                                            @lang('1st
+                                                                                                                                                        generation valid members')</div>
+                                                                        <div data-v-21b9e3ce="" class="val">
+                                                                            {{ $active_gen_team1total }}/12</div>
+                                                                    </div>
+                                                                    <div data-v-21b9e3ce="" class="box-item">
+                                                                        <div data-v-21b9e3ce="" class="name">
+                                                                            @lang('2nd + 3rd
+                                                                                                                                                        generation valid members')</div>
+                                                                        <div data-v-21b9e3ce="" class="val">
+                                                                            {{ $active_gen_team2total+$active_gen_team3total }}/30</div>
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div data-v-21b9e3ce="" class="box">
+                                                                <div data-v-21b9e3ce="" class="box-title">
+                                                                    @lang('VIP4
+                                                                                                                                        Benefits')
+                                                                </div>
+                                                                <div data-v-21b9e3ce="" class="box-con">
+                                                                    <div data-v-21b9e3ce="" class="box-item">
+                                                                        <div data-v-21b9e3ce="" class="name">
+                                                                            @lang('Minimum
+                                                                                                                                                        amount quantification')</div>
+                                                                        <div data-v-21b9e3ce="" class="val">5000
+                                                                        </div>
+                                                                    </div>
+                                                                    <div data-v-21b9e3ce="" class="box-item">
+                                                                        <div data-v-21b9e3ce="" class="name">
+                                                                            @lang('Maximum
+                                                                                                                                                        amount quantification')</div>
+                                                                        <div data-v-21b9e3ce="" class="val">7999
+                                                                        </div>
+                                                                    </div>
+                                                                    <div data-v-21b9e3ce="" class="box-item">
+                                                                        <div data-v-21b9e3ce="" class="name">
+                                                                            @lang('Daily
+                                                                                                                                                        quantified times')</div>
+                                                                        <div data-v-21b9e3ce="" class="val">5 times
+                                                                        </div>
+                                                                    </div>
+                                                                    <div data-v-21b9e3ce="" class="box-item">
+                                                                        <div data-v-21b9e3ce="" class="name">
+                                                                            @lang('return on
+                                                                                                                                                        investment')</div>
+                                                                        <div data-v-21b9e3ce="" class="val">1.5% -2%
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div data-v-21b9e3ce="" class="van-swipe-item van-tab__panel-wrapper"
+                                                    id="van-tab-6" role="tabpanel" tabindex="-1" aria-hidden="true"
+                                                    aria-labelledby="van-tabs-1-4">
+                                                    <div class="van-tab__panel">
+                                                        <div data-v-21b9e3ce="" class="container">
+                                                            <div data-v-21b9e3ce="" class="box">
+                                                                <div data-v-21b9e3ce="" class="box-title">
+                                                                    @lang('VIP5
+                                                                                                                                        Upgrade conditions')</div>
+                                                                <div data-v-21b9e3ce="" class="box-con">
+                                                                    <div data-v-21b9e3ce="" class="box-item">
+                                                                        <div data-v-21b9e3ce="" class="name">
+                                                                            @lang('Effective amount')</div>
+                                                                        <div data-v-21b9e3ce="" class="val">
+                                                                            {{ number_format($balance) }}/8000</div>
+                                                                    </div>
+                                                                    <div data-v-21b9e3ce="" class="box-item">
+                                                                        <div data-v-21b9e3ce="" class="name">
+                                                                            @lang('1st
+                                                                                                                                                        generation valid members')</div>
+                                                                        <div data-v-21b9e3ce="" class="val">
+                                                                            {{ $active_gen_team1total }}/25</div>
+                                                                    </div>
+                                                                    <div data-v-21b9e3ce="" class="box-item">
+                                                                        <div data-v-21b9e3ce="" class="name">
+                                                                            @lang('2nd + 3rd
+                                                                                                                                                        generation valid members')</div>
+                                                                        <div data-v-21b9e3ce="" class="val">
+                                                                            {{ $active_gen_team2total+$active_gen_team3total }}/60</div>
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div data-v-21b9e3ce="" class="box">
+                                                                <div data-v-21b9e3ce="" class="box-title">
+                                                                    @lang('VIP5
+                                                                                                                                        Benefits')
+                                                                </div>
+                                                                <div data-v-21b9e3ce="" class="box-con">
+                                                                    <div data-v-21b9e3ce="" class="box-item">
+                                                                        <div data-v-21b9e3ce="" class="name">
+                                                                            @lang('Minimum
+                                                                                                                                                        amount quantification')</div>
+                                                                        <div data-v-21b9e3ce="" class="val">8000
+                                                                        </div>
+                                                                    </div>
+                                                                    <div data-v-21b9e3ce="" class="box-item">
+                                                                        <div data-v-21b9e3ce="" class="name">
+                                                                            @lang('Maximum
+                                                                                                                                                        amount quantification')</div>
+                                                                        <div data-v-21b9e3ce="" class="val">10000
+                                                                        </div>
+                                                                    </div>
+                                                                    <div data-v-21b9e3ce="" class="box-item">
+                                                                        <div data-v-21b9e3ce="" class="name">
+                                                                            @lang('Daily
+                                                                                                                                                        quantified times')</div>
+                                                                        <div data-v-21b9e3ce="" class="val">6 times
+                                                                        </div>
+                                                                    </div>
+                                                                    <div data-v-21b9e3ce="" class="box-item">
+                                                                        <div data-v-21b9e3ce="" class="name">
+                                                                            @lang('return on
+                                                                                                                                                        investment')</div>
+                                                                        <div data-v-21b9e3ce="" class="val">2% -2.5%
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!---->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
