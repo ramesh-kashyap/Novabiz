@@ -22,7 +22,6 @@ class Bonus extends Controller
     public function index(Request $request)
     {
        $user=Auth::user();
-
           $limit = $request->limit ? $request->limit : paginationLimit();
             $status = $request->status ? $request->status : null;
             $search = $request->search ? $request->search : null;
@@ -34,20 +33,23 @@ class Bonus extends Controller
               ->orWhere('level', 'LIKE', '%' . $search . '%')
               ->orWhere('amt', 'LIKE', '%' . $search . '%')
               ->orWhere('comm', 'LIKE', '%' . $search . '%');
-            });
-
-      }
-            $notes = $notes->paginate($limit)
-                ->appends([
-                    'limit' => $limit
-                ]);
+            });}
+            $notes = $notes->paginate($limit)->appends(['limit' => $limit]);
         $this->data['level_income'] =$notes;
         $this->data['search'] =$search;
         $this->data['page'] = 'user.bonus.level-income';
         return $this->dashboard_layout();
-
-
     }
+
+    public function teamreward(Request $request)
+    {
+    $user = Auth::user();
+    $teamCount = User::where('sponsor', $user->id)->where('active_status', 'Active')->where('package', '>=', 50)->count();
+    $this->data['teamCount'] = $teamCount;
+    $this->data['page'] = 'user.bonus.level-income';
+    return $this->dashboard_layout('user.bonus.level-income');
+    }
+
 
     public function cashback_income(Request $request)
     {
@@ -105,8 +107,6 @@ class Bonus extends Controller
         $this->data['search'] =$search;
         $this->data['page'] = 'user.bonus.activitiesBonus';
         return $this->dashboard_layout();
-
-
     }
 
 

@@ -22,7 +22,7 @@
     font-style: normal;
     font-weight: 400;
     border-radius: .2rem;
-    background: #e8fc9c;
+    background: #2dd4bf;
     padding: 0rem .16rem;
     height: .4rem;
     display: flex;
@@ -261,7 +261,7 @@
     color: #000;
     font-size: .28rem;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 800;
     line-height: 1em
 }
 

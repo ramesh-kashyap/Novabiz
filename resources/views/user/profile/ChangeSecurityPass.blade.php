@@ -44,7 +44,7 @@
     -webkit-transition: all .2s linear;
     transition: all .2s linear;
     border-radius: .125rem;
-    background-color: #e8fc9c;
+    background-color: #2dd4bf;
     color: #15191c;
 }
 .pagination .page-item .page-link {

@@ -42,7 +42,6 @@ function paginationLimit()
 
 function sendEmail($user, $type = null, $shortCodes = [])
 {
-
   $mail_data=array('subject'=>$type,'MailDetail'=>$shortCodes);
   \Mail::to($user)->send(new Sendmail($mail_data));
 }
@@ -676,18 +675,14 @@ return true;
 
 function add_direct_income($id,$amt)
 {
-
   //$user_id =$this->session->userdata('user_id_session');
 $data = User::where('id',$id)->orderBy('id','desc')->first();
-
 $user_id = $data->username;
 $fullname=$data->name;
-
 $rname = $data->username;
 $user_mid = $data->id;
 
       $cnt = 1;
-
         $amount = $amt/100;
 
               $Sposnor_id = User::where('id',$user_mid)->orderBy('id','desc')->first();

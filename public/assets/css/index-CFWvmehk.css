@@ -461,7 +461,7 @@
 .home-market .tabs .tab.first[data-v-dc73e05e] {
     border-radius: .44rem;
     border: .02rem solid #7A7A78;
-    background: #e8fc9c;
+    background: #2dd4bf;
     /* height: 100%; */
     /* background: linear-gradient(to bottom, #F4CF0B 10%, #FDA104 90%); */
     position: relative
@@ -6228,7 +6228,8 @@ ul {
 .van-tab__panel-wrapper {
     flex-shrink: 0;
     box-sizing: border-box;
-    width: 100%
+    width: 100%;
+    overflow-y: scroll;
 }
 
 .van-tab__panel-wrapper--inactive {

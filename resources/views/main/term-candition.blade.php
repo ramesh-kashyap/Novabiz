@@ -105,10 +105,10 @@
             <div data-v-e85f0186="" class="page-container">
                 <div data-v-e85f0186="" class="scroll">
                     <div data-v-4bfacc78="" class="container">
-                        <h1 data-v-4bfacc78="">Privacy Policy for Smart Trade Core</h1>
+                        <h1 data-v-4bfacc78="">Privacy Policy for Novabiz</h1>
                         <div data-v-4bfacc78="" class="desc">
                             <p><strong>Introduction<br>
-                                    Welcome to Smart Trade Core! We are committed to protecting your privacy and handling your data in an open and transparent manner. This privacy policy explains how we collect, use, process, and disclose your information, including personal data, when you use the Smart Trade Core app and website.
+                                    Welcome to Novabiz! We are committed to protecting your privacy and handling your data in an open and transparent manner. This privacy policy explains how we collect, use, process, and disclose your information, including personal data, when you use the Novabiz app and website.
                                     </strong></p>
                                     
                                     <p><strong>*Information Collection:*</strong></p>
@@ -134,7 +134,7 @@
                                  <p><strong>- Process transactions and send notices about your transactions</strong></p>
                                  <p><strong>- Resolve disputes, collect fees, and troubleshoot problems.</strong></p>
                                  <p><strong>- Prevent potentially prohibited or illegal activities, and enforce our user agreement.</strong></p>
-                                 <p><strong>- Customize, measure, and improve Smart Trade Core services and the content and layout of our website and applications.</strong></p>
+                                 <p><strong>- Customize, measure, and improve Novabiz services and the content and layout of our website and applications.</strong></p>
                                  <p><strong>- Deliver targeted marketing, service update notices, and promotional offers based on your communication preferences.</strong></p>
                                  <p><strong>Sharing of Information:*</strong></p>
                                  <p><strong>We may share your personal information with third parties under the following circumstances:</strong></p>
@@ -146,7 +146,7 @@
                                  <p><strong> *Data Security:*</strong></p>
                                  <p><strong> We implement a variety of security measures to maintain the safety of your personal information when you enter, submit, or access your personal information.</strong></p>
                                  <p><strong>*Your Rights:*</strong></p>
-                                 <p><strong>You have the right to access, correct, or delete your personal data managed by Smart Trade Core. You can typically manage your data through your user account.</strong></p>
+                                 <p><strong>You have the right to access, correct, or delete your personal data managed by Novabiz. You can typically manage your data through your user account.</strong></p>
                                  <p><strong>Changes to This Privacy Policy: </strong></p>
                                  <p><strong>We may update this privacy policy to reflect changes to our information practices. If we make any material changes, we will notify you by email info@dcxpro.world or by means of a notice on this website prior to the change becoming effective.</strong></p>
                                  <p><strong>*Contact Us:*</strong></p>

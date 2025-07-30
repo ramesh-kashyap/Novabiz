@@ -220,8 +220,10 @@
                                 <label data-v-8ad3dd38="" class="title">@lang('Select Payment Mode')</label>
                                 <div data-v-8ad3dd38="" class="inp-con" style="margin-top:10px">
                                     <select data-v-8ad3dd38="" class="inp" type="number" name="amount">
-                                        <option value="100">100</option>
-                                        <option value="200" >100</option>
+                                        <option value="50">50</option>
+                                        <option value="100" >100</option>
+										<option value="150" >150</option>
+										<option value="200" >200</option>
                                     </select>
                                 </div>
                             </div>

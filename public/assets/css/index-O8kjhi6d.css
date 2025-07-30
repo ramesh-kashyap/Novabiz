@@ -75,7 +75,7 @@
 
 .item .item-top .right .btn.processing[data-v-d3d46c3f] {
     background: #fff;
-    color: #e8fc9c
+    color: #2dd4bf
 }
 
 .item .item-top .right .btn.pending[data-v-d3d46c3f] {
@@ -182,7 +182,7 @@
 .task-page .task-list-con .tabs .tab.first[data-v-6a9399e1] {
     border-radius: .44rem;
     border: .02rem solid #7A7A78;
-    background: #e8fc9c;
+    background: #2dd4bf;
     position: relative;
     color: #15191c;
     text-align: center;

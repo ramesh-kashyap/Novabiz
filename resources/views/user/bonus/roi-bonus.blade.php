@@ -124,7 +124,7 @@
     line-height: normal;
     border-radius: .44rem;
     border: .02rem solid #7a7a78;
-    background: #e8fc9c;
+    background: #2dd4bf;
 }
 .van-refresh-com[data-v-3aad496f] {
     min-height: 100%;

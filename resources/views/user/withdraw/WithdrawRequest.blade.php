@@ -97,7 +97,7 @@
         font-weight: 400;
         border: 1px solid transparent;
         border-radius: .2rem;
-        border: .02rem solid #b6afc3;
+        border: .02rem solid #2dd4bf;
         background: #fff;
     }
 
@@ -114,7 +114,7 @@
     .tabs .tab.first[data-v-6a9399e1] {
         border-radius: .44rem;
         border: .02rem solid #7A7A78;
-        background: #e8fc9c;
+        background: #2dd4bf;
         position: relative;
         color: #15191c;
         text-align: center;
@@ -160,12 +160,12 @@
                     </div>
                 </div>
             </div>
-            <div data-v-6a9399e1="" id="tab" class="tabs">
+            <!-- <div data-v-6a9399e1="" id="tab" class="tabs">
                 <div data-v-6a9399e1="" class="tab first"><span data-v-6a9399e1="">@lang('Withdraw Request')</span>
                 </div>
                 <div data-v-6a9399e1="" class="tab"> <a href="{{ route('user.withdrawPrinciple') }}"> <span
                             data-v-6a9399e1="">@lang('Principle Withdraw') </a></span></div>
-            </div>
+            </div> -->
             <div data-v-e85f0186="" class="page-container">
                 <div data-v-e85f0186="" class="scroll">
                     <div data-v-c654d101="" class="container">
@@ -178,9 +178,9 @@
                             
                             $quantifiable_count = 0;
                             
-                            $min_withdrawal = 10;
+                            $min_withdrawal = 20;
                             $maximum_withdrawal = 50000;
-                            $chargeAmt = 10;
+                            $chargeAmt = 5;
                             
                             ?>
 
@@ -281,7 +281,7 @@
                                             <div data-v-c654d101="" class="name">@lang('Transaction Fee')</div>
                                             <div data-v-c654d101="" class="val nonUSDT"><span data-v-c654d101=""
                                                     class="coinAmount"
-                                                    id="chargefee">{{ $chargeAmt == 50 ? 10 : $chargeAmt }}% </span></div>
+                                                    id="chargefee">{{ $chargeAmt == 50 ? 5 : $chargeAmt }}% </span></div>
                                         </div>
 
                                         <div data-v-c654d101="" class="info-item">

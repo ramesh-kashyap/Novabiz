@@ -276,7 +276,7 @@ a {
                                                     <img class="logo-home" src="{{asset('')}}assets/images/logo.png"
                                                         alt="Button-Back">
                                                 </a>
-                                                <h1>Smart Trade Core</h1>
+                                                <h1>Novabiz</h1>
                                             </div>
                                             
                                             <div class="notification-bell-main">

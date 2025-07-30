@@ -92,7 +92,7 @@
     border-radius: .32rem;
     background: url(../assets/images/vip2-Ci3I9wqU.png) center no-repeat;
     height: 1.68rem;
-   filter:brightness(1.2) invert(1);
+   /* filter:brightness(1.2) invert(1); */
 }
 .team-generations .data-list .tr .tr-con .td .name[data-v-6e0a804a] {
     margin-top: .16rem;
@@ -106,7 +106,7 @@
 .team-generations .data-list .tr[data-v-6e0a804a] {
     padding: .24rem .2rem;
     display: flex;
-    filter:brightness(1.2) invert(1);
+    /* filter:brightness(1.2) invert(1); */
 
     flex-direction: column;
     border-radius: .32rem;
@@ -123,7 +123,7 @@
     min-height: 1em;
 }
 .team-generations .data-list .tr .tr-con .td .val.effective[data-v-6e0a804a] {
-    color: #854af6;
+    color: #000;
 }
 </style>
 <style>
@@ -168,7 +168,7 @@
                     <div data-v-f9fad449="" class="right">
                         <div data-v-c6ff3471="" class="header-right">
                             <div data-v-c6ff3471="" class="van-badge__wrapper"><img data-v-c6ff3471=""
-                                    src="{{asset('')}}assets/images/bell1.png" style="filter:brightness(1.2) invert(1);">
+                                    src="{{asset('')}}assets/images/bell1.png" style="filter: brightness(3) saturate(96%) invert(11%) sepia(56%) saturate(481%) hue-rotate(120deg) brightness(90%) contrast(85%)">
                                 <!---->
                             </div>
                         </div>

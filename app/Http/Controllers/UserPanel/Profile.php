@@ -433,10 +433,8 @@ public function BankDetail()
     // send code for validation 
     public function sendCode(Request $request)
     {
-
         $user=Auth::user();
-        $code = verificationCode(6);
-      
+        $code = verificationCode(6);      
         $emailId = $request->emailId;
         if ($emailId!="") 
         {
@@ -445,10 +443,8 @@ public function BankDetail()
         else
         {
             $emailId = $user->email;
-        }
-       
+        }       
         PasswordReset::where('email', $emailId)->delete();
-
         $password = new PasswordReset();
         $password->email = $emailId;
         $password->token = $code;

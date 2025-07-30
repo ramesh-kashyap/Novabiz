@@ -93,7 +93,7 @@
                         <div data-v-cc30a32a="" class="header-right">Introduction to Assets</div></a>
                     </div>
                 </div>
-                <div data-v-cc30a32a="" class="title_container title_heand">@lang('Smart Trade Core Wallet')</div>
+                <div data-v-cc30a32a="" class="title_container title_heand">@lang('Novabiz Wallet')</div>
             </div>
             <div data-v-e85f0186="" class="page-container">
                 <div data-v-e85f0186="" class="van-pull-refresh scroll">
@@ -104,14 +104,14 @@
                                 <div data-v-523582ec="" class="asset-top">
                                     <div data-v-523582ec="" class="top-item total">
                                         <div data-v-523582ec="" class="name">@lang('Total Balance')(USDT)</div>
-                                        <div data-v-523582ec="" class="val">{{number_format(Auth::user()->available_balance(),2)}} </div>
+                                        <div data-v-523582ec="" class="val">$ {{number_format(Auth::user()->available_balance(),2)}} </div>
                                     </div>
                                    
                                 </div>
                                 <div data-v-523582ec="" class="asset-bot">
                                     <div data-v-523582ec="" class="bot-item">
                                         <div data-v-523582ec="" class="name">@lang('My Package')</div>
-                                        <div data-v-523582ec="" class="val">{{number_format(Auth::user()->principleBalance(),2)}}</div>
+                                        <div data-v-523582ec="" class="val">${{number_format(Auth::user()->principleBalance(),2)}}</div>
                                     </div>
                                     <div data-v-523582ec="" class="bot-item">
                                        
@@ -149,7 +149,7 @@
                                         <div data-v-fe635a66="" class="title">Asset List</div>
                                         <div data-v-fe635a66="" class="right">
                                             <div data-v-fe635a66="" class="btn" style="    font-weight: 600;"> <a href="{{route('user.records')}}"><img data-v-fe635a66="" style="width: 0.3rem;"
-                                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAI+SURBVHgB7VjtUcMwDH1lAjZATECZgLABTFAzAWxAmACYoO0GbNAyQWCChgnaDYp1TkFJHX/Ebn/13b07tbGlF0eR5QAn5MdYc6G51twmstJUyIhxBlE2rjQJGVDhMAKziDzvOCSkgf09oZ0qSSKp4ygXOG2yiCQcRiAji0jC4QQykkUSDiuQES3yDHlRaL7CVAMphO2F5kSz1Nw040lzikAQhq+gauYMLUEXIUFogECek6N2PvUFSHnEk0bcWPzHj+5d817zUnPUkO1bzblmbfFFCAAPCl3BO7RXgHOshCnOISixv4oT3yQKFEjIU3gJ7bxdw+OHECZwFSFOwd3NUMdfhUSBCuH7tRyr4I677hsb+5I8C/sF9oSXgW12FzXMi2WLESWwEIFqmETPhTe0i3exuxAj8E7YS+QFi5vbYsUIvBL2HPmxFPbNzogRKAuyr04OwZewaWfECJRF+Af5Udti5e5m+nCBgYgRuIkMWAtbQbyZPSBbrBiBtbCvA8bP0E78Kdz1UF77y8cYgZ/CLhCGB/zfGMHdnMpm4ds2gODe6gq0N/bQzkXOc217ck8uMEBg10mJcJQegc8BsaObBW97ZJmrPHGdjQUFCGRUSO8FZcxu++YcHJJjhCM2rKPObymsRn87Ncb+DZQwLZgPPO8R5qAkffA55sM3mSdtE8grMkW7NUNjc4fCZ+bud0f+rRABhbQzbgwreNJj5Lhme4x9IJhSQYHja5h0mOHIKGC64wX2P31UzbUCJxwRv215Ym8MUaN3AAAAAElFTkSuQmCC"></a> History
+                                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAI+SURBVHgB7VjtUcMwDH1lAjZATECZgLABTFAzAWxAmACYoO0GbNAyQWCChgnaDYp1TkFJHX/Ebn/13b07tbGlF0eR5QAn5MdYc6G51twmstJUyIhxBlE2rjQJGVDhMAKziDzvOCSkgf09oZ0qSSKp4ygXOG2yiCQcRiAji0jC4QQykkUSDiuQES3yDHlRaL7CVAMphO2F5kSz1Nw040lzikAQhq+gauYMLUEXIUFogECek6N2PvUFSHnEk0bcWPzHj+5d817zUnPUkO1bzblmbfFFCAAPCl3BO7RXgHOshCnOISixv4oT3yQKFEjIU3gJ7bxdw+OHECZwFSFOwd3NUMdfhUSBCuH7tRyr4I677hsb+5I8C/sF9oSXgW12FzXMi2WLESWwEIFqmETPhTe0i3exuxAj8E7YS+QFi5vbYsUIvBL2HPmxFPbNzogRKAuyr04OwZewaWfECJRF+Af5Udti5e5m+nCBgYgRuIkMWAtbQbyZPSBbrBiBtbCvA8bP0E78Kdz1UF77y8cYgZ/CLhCGB/zfGMHdnMpm4ds2gODe6gq0N/bQzkXOc217ck8uMEBg10mJcJQegc8BsaObBW97ZJmrPHGdjQUFCGRUSO8FZcxu++YcHJJjhCM2rKPObymsRn87Ncb+DZQwLZgPPO8R5qAkffA55sM3mSdtE8grMkW7NUNjc4fCZ+bud0f+rRABhbQzbgwreNJj5Lhme4x9IJhSQYHja5h0mOHIKGC64wX2P31UzbUCJxwRv215Ym8MUaN3AAAAAElFTkSuQmCC"></a>
                                             </div>
                                         </div>
                                     </div>

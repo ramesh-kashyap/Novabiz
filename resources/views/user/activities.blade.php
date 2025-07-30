@@ -59,7 +59,7 @@
 </head>
 <style>
     .item .item-top .right .btn.processing[data-v-d3d46c3f] {
-    background: #e8fc9c;
+    background: #2dd4bf;
     color: #15191c;
 }
 .task-page[data-v-6a9399e1] {
@@ -70,6 +70,7 @@
     flex-direction: column;
     padding: 0 .32rem .32rem;
     overflow-y: scroll;
+    
 }
 </style>
 <body class="">
@@ -109,8 +110,8 @@
                                                 <div data-v-d3d46c3f="" class="item">
                                                     <div data-v-d3d46c3f="" class="item-top">
                                                         <div data-v-d3d46c3f="" class="left">
-                                                            <div data-v-d3d46c3f="" class="title">@lang('Inviting 3 valid user will reward you with 10 USDT')</div>
-                                                            <p data-v-d3d46c3f="">@lang("If the number of invited users reaches 3 and the user's first deposit exceeds 100 USDT, he or she will be considered a valid user. This reward can only be obtained once and cannot be obtained repeatedly.")
+                                                            <div data-v-d3d46c3f="" class="title">@lang('V1 Members Earn $50 Monthly for a Continuous 12-Month Reward Period')</div>
+                                                            <p data-v-d3d46c3f="">@lang("As a V1 member, enjoy a consistent $50 reward every month for 12 months, recognizing your commitment and participation throughout the year.")
                                                             </p>
                                                         </div>
                                                         <div data-v-d3d46c3f="" class="right"><span data-v-d3d46c3f=""
@@ -121,8 +122,8 @@
                                                 <div data-v-d3d46c3f="" class="item">
                                                     <div data-v-d3d46c3f="" class="item-top">
                                                         <div data-v-d3d46c3f="" class="left">
-                                                            <div data-v-d3d46c3f="" class="title">@lang('Inviting 6 valid user will reward you with 25 USDT')</div>
-                                                            <p data-v-d3d46c3f="">@lang("If the number of invited users reaches 6 and the first deposit of 6 users exceeds 100 USDT,they will be considered as valid users. This reward can only be obtained once and cannot be obtained repeatedly.")
+                                                            <div data-v-d3d46c3f="" class="title">@lang('V2 Members Enjoy $100 Monthly Rewards for a Full 12-Month Period')</div>
+                                                            <p data-v-d3d46c3f="">@lang("V2 membership entitles you to receive $100 per month for an entire year, providing valuable and ongoing financial appreciation for your efforts.")
                                                             </p>
                                                         </div>
                                                         <div data-v-d3d46c3f="" class="right"><span data-v-d3d46c3f=""
@@ -133,8 +134,8 @@
                                                 <div data-v-d3d46c3f="" class="item">
                                                     <div data-v-d3d46c3f="" class="item-top">
                                                         <div data-v-d3d46c3f="" class="left">
-                                                            <div data-v-d3d46c3f="" class="title">@lang('Inviting 10 valid user will reward you with 50 USDT')</div>
-                                                            <p data-v-d3d46c3f="">@lang("If the number of invited users reaches 10, and the first deposit amount of these 10 people exceeds 100 USDT, they will be regarded as 10 valid users. This reward can only be obtained once and cannot be obtained repeatedly.")</p>
+                                                            <div data-v-d3d46c3f="" class="title">@lang('V3 Members Receive $150 Every Month Over a 12-Month Reward Duration')</div>
+                                                            <p data-v-d3d46c3f="">@lang("Being a V3 member brings $150 in rewards monthly for 12 months, supporting your progress and rewarding your continued engagement with the platform.")</p>
                                                         </div>
                                                         <div data-v-d3d46c3f="" class="right"><span data-v-d3d46c3f=""
                                                                 class="btn processing">{{($userDirect>=10)?"Completed":"In Progress"}}</span></div>
@@ -144,8 +145,8 @@
                                                 <div data-v-d3d46c3f="" class="item">
                                                     <div data-v-d3d46c3f="" class="item-top">
                                                         <div data-v-d3d46c3f="" class="left">
-                                                            <div data-v-d3d46c3f="" class="title">@lang('Inviting 20 valid user will reward you with 120 USDT')</div>
-                                                            <p data-v-d3d46c3f="">@lang("If the number of invited users reaches 20, and the first deposit amount of these 20 people exceeds 100 USDT, they will be regarded as 20 valid users. This reward can only be obtained once and cannot  be obtained repeatedly.")</p>
+                                                            <div data-v-d3d46c3f="" class="title">@lang('V4 Members Qualify for $500 in Monthly Rewards for 12 Consecutive Months')</div>
+                                                            <p data-v-d3d46c3f="">@lang("With V4 status, earn $500 each month over a full year. This level celebrates your higher achievements with premium and reliable rewards.")</p>
                                                         </div>
                                                         <div data-v-d3d46c3f="" class="right"><span data-v-d3d46c3f=""
                                                                 class="btn processing">{{($userDirect>=20)?"Completed":"In Progress"}}</span></div>
@@ -155,8 +156,8 @@
                                                 <div data-v-d3d46c3f="" class="item">
                                                     <div data-v-d3d46c3f="" class="item-top">
                                                         <div data-v-d3d46c3f="" class="left">
-                                                            <div data-v-d3d46c3f="" class="title">@lang('Inviting 50 valid user will reward you with 250 USDT')</div>
-                                                            <p data-v-d3d46c3f="">@lang("If the number of invited users reaches 50, and the first deposit amount of these 50 people exceeds 100 USDT, they will be regarded as 50 valid users. This reward can only be obtained once and cannot  be obtained repeatedly.")</p>
+                                                            <div data-v-d3d46c3f="" class="title">@lang('V5 Members Benefit from $1000 Monthly Payouts for a Full 12-Month Term')</div>
+                                                            <p data-v-d3d46c3f="">@lang("V5 members enjoy substantial monthly earnings of $1000, reinforcing your success and leadership with dependable annual benefits.")</p>
                                                         </div>
                                                         <div data-v-d3d46c3f="" class="right"><span data-v-d3d46c3f=""
                                                                 class="btn processing">{{($userDirect>=36)?"Completed":"In Progress"}}</span></div>
@@ -175,8 +176,19 @@
                                                 <div data-v-d3d46c3f="" class="item">
                                                     <div data-v-d3d46c3f="" class="item-top">
                                                         <div data-v-d3d46c3f="" class="left">
-                                                            <div data-v-d3d46c3f="" class="title">@lang('Inviting 150 valid user will reward you with 1000 USDT')</div>
-                                                            <p data-v-d3d46c3f="">@lang("If the number of invited users reaches 150, and the first deposit amount of these 150 people exceeds 100 USDT, they will be regarded as 150 valid users. This reward can only be obtained once and cannot  be obtained repeatedly.")</p>
+                                                            <div data-v-d3d46c3f="" class="title">@lang('V6 Members Secure $1500 Monthly Earnings for 12 Straight Months')</div>
+                                                            <p data-v-d3d46c3f="">@lang("Achieve V6 status and unlock $1500 each month for one year—designed to honor your consistent excellence and high-level contributions.")</p>
+                                                        </div>
+                                                        <div data-v-d3d46c3f="" class="right"><span data-v-d3d46c3f=""
+                                                                class="btn processing">{{($userDirect>=36)?"Completed":"In Progress"}}</span></div>
+                                                    </div>
+                                                    <!---->
+                                                </div>
+                                                <div data-v-d3d46c3f="" class="item">
+                                                    <div data-v-d3d46c3f="" class="item-top">
+                                                        <div data-v-d3d46c3f="" class="left">
+                                                            <div data-v-d3d46c3f="" class="title">@lang(' V7 Members Enjoy $2500 Monthly Income Throughout an Entire 12-Month Period')</div>
+                                                            <p data-v-d3d46c3f="">@lang("V7 members receive a remarkable $2500 monthly, every month for 12 months—our most prestigious reward for top-tier performers.")</p>
                                                         </div>
                                                         <div data-v-d3d46c3f="" class="right"><span data-v-d3d46c3f=""
                                                                 class="btn processing">{{($userDirect>=36)?"Completed":"In Progress"}}</span></div>

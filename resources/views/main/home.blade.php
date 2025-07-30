@@ -244,7 +244,7 @@
                                     <div class="card-header" id="headingOne">
                                         <h5 class="mb-0">
                                             <a href="#" class="btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                What is Smart Trade Core Trade?
+                                                What is Novabiz Trade?
                                             </a>
                                         </h5>
                                     </div>
@@ -512,7 +512,7 @@
                     <div class="row">
                         <div class="col-lg-5 col-12">
                             <div class="copyright wow fadeInUp">
-                                <p>© 2025 Dcx Pro. Powered By Smart Trade Core</p>
+                                <p>© 2025 Dcx Pro. Powered By Novabiz</p>
                             </div>
                         </div>
                         <div class="col-lg-7 col-12">

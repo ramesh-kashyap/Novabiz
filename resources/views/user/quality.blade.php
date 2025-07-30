@@ -5,7 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="{{ asset('') }}assets/images/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="robots" content="noindex, nofollow">
-    <title>Smart Trade Core Quantification</title>
+    <title>Novabiz Quantification</title>
     <script type="module" crossorigin="" src="{{ asset('') }}assets/js/index-WOgA1gKg.js"></script>
     <link rel="modulepreload" crossorigin="" href="{{ asset('') }}assets/js/vant-3s7b3naM.js">
     <link rel="modulepreload" crossorigin="" href="{{ asset('') }}assets/js/vuei18n-CA58nVJV.js">
@@ -245,7 +245,7 @@
     width: 100%;
     height: .88rem;
     border-radius: .24rem;
-    background: #e8fc9c;
+    background: #2dd4bf;
     color: #15191c;
     text-align: center;
     font-size: .32rem;
@@ -286,7 +286,7 @@
                         <div class="van-pull-refresh__head"></div>
                         <div data-v-5a91a60a="" class="quantify">
                             <div data-v-5a91a60a="" class="container">
-                                <div data-v-5a91a60a="" class="title_heand">Smart Trade Core Quantification</div>
+                                <div data-v-5a91a60a="" class="title_heand">Novabiz Quantification</div>
                                 <div data-v-15322fef="" data-v-5a91a60a="" class="quantify-info">
                                     <div data-v-15322fef="" class="info-card">
 
@@ -652,7 +652,7 @@
                                     }
 
                                     .box .box-con .box-item .name[data-v-21b9e3ce] {
-                                        color: #473d3d;
+                                        color:rgb(0, 0, 0);
                                         font-size: .28rem;
                                         font-style: normal;
                                         font-weight: 400;
@@ -698,7 +698,8 @@
                                 <div data-v-21b9e3ce="" class="van-tabs van-tabs--line">
                                     <!---->
                                     <div class="van-tabs__content van-tabs__content--animated">
-                                        <div class="van-swipe van-tabs__track">
+                                        
+                                        <div class="van-swipe van-tabs__track">                                            
                                             <div class="van-swipe__track"
                                                 style="transition-duration: 0ms; transform: translateX(0px); width: 1000px;">
                                                 <div data-v-21b9e3ce="" class="van-swipe-item van-tab__panel-wrapper"
@@ -710,9 +711,9 @@
                                                             @if (is_array($level_income) || is_object($level_income))
     @foreach ($level_income as $value)
         <div data-v-21b9e3ce="" class="box">
-            <div data-v-21b9e3ce="" class="box-title">
+            <!-- <div data-v-21b9e3ce="" class="box-title">
                 @lang('Qunatify Income')
-            </div>
+            </div> -->
             <div data-v-21b9e3ce="" class="box-con">
                 <div data-v-21b9e3ce="" class="box-item">
                     <div data-v-21b9e3ce="" class="name">
@@ -749,6 +750,22 @@
                         {{ $value->c_sell }}
                     </div>
                 </div>
+                <div data-v-21b9e3ce="" class="box-item">
+                    <div data-v-21b9e3ce="" class="name">
+                        @lang('Symbol')
+                    </div>
+                    <div data-v-21b9e3ce="" class="val">
+                        {{ $value->c_name }}
+                    </div>
+                </div>
+                <div data-v-21b9e3ce="" class="box-item">
+                    <div data-v-21b9e3ce="" class="name">
+                        @lang('Completion Time')
+                    </div>
+                    <div data-v-21b9e3ce="" class="val">
+                        {{date("D, d M Y", strtotime($value->created_at)) }}
+                    </div>
+                </div>
             </div>
         </div>
     @endforeach
@@ -756,6 +773,7 @@
 
                                                         </div>
                                                     </div>
+                                                    
                                                 </div>
                                                 <div data-v-21b9e3ce="" class="van-swipe-item van-tab__panel-wrapper "
                                                     id="van-tab-3" role="tabpanel" tabindex="-1" aria-hidden="true"

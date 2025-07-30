@@ -42,7 +42,8 @@
 }
 
 .code-box .bg[data-v-19974f11] {
-    width: 100%
+    width: 100%;
+    filter:brightness(3) saturate(100%) invert(23%) sepia(56%) saturate(481%) hue-rotate(120deg) brightness(90%) contrast(85%);
 }
 
 .code-box .content[data-v-19974f11] {

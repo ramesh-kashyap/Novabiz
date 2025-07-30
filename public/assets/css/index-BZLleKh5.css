@@ -11,16 +11,17 @@
     border-radius: .32rem;
     background: #000;
     padding: .02rem;
-    filter:brightness(1.2) invert(1);
+    /* filter:brightness(1.2) invert(1); */
 }
 
 .asset .name[data-v-523582ec] {
     margin-bottom: .16rem;
     color: #fff;
-    font-size: .28rem;
+    font-size: .30rem;
     font-style: normal;
     font-weight: 400;
-    line-height: 1em
+    line-height: 1em;
+    /* letter-spacing: 1px */
 }
 
 .asset .asset-top[data-v-523582ec] {
@@ -30,7 +31,8 @@
     border: .02rem solid #7a7a78;
     background: #15191c;
     height: 1.88rem;
-    padding: .4rem
+    padding: .4rem;
+    /* filter:brightness(1.2) invert(1); */
 }
 
 .asset .asset-top .top-item[data-v-523582ec] {
@@ -236,8 +238,8 @@
     display: flex;
     align-items: center;
     border-radius: .28rem;
-    border: .02rem solid #e8fc9c;
-    background: #e8fc9c;
+    border: .02rem solid #2dd4bf;
+    background: #2dd4bf;
     padding: .08rem .22rem
 }
 

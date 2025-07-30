@@ -43,31 +43,31 @@
     <div data-v-672149cf="" data-v-e85f0186="" class="main-footer">
         <a href="{{ route('user.dashboard') }}">
             <div data-v-672149cf="" class="item"><img data-v-672149cf=""
-                    src="{{ asset('') }}assets/images/icons-home.png" style="filter:brightness(0.9) invert(10)"><span
+                    src="{{ asset('') }}assets/images/icons-home.png"><span
                     data-v-672149cf="">@lang('Home')</span></div>
         </a>
 
         <a href="{{ route('user.quality') }}">
             <div data-v-672149cf="{{ route('user.quality') }}" class="item"><img data-v-672149cf=""
-                    src="{{ asset('') }}assets/images/qualt.png" style="filter:brightness(0.9) invert(10)"><span
+                    src="{{ asset('') }}assets/images/qualt.png"><span
                     data-v-672149cf="">@lang('Quantify')</span></div>
         </a>
 
         <a href="{{ route('user.level-team') }}">
             <div data-v-672149cf="" class="item"><img data-v-672149cf=""
-                    src="{{ asset('') }}assets/images/iconsteam.png" style="filter:brightness(0.9) invert(10)"><span
+                    src="{{ asset('') }}assets/images/iconsteam.png"><span
                     data-v-672149cf="">@lang('Team')</span></div>
         </a>
 
         <a href="{{ route('user.asset') }}">
             <div data-v-672149cf="" class="item on"><img data-v-672149cf=""
-                    src="{{ asset('') }}assets/images/bitc.png" style="filter:brightness(0.9) invert(10)"><span data-v-672149cf="">@lang('Assets')</span>
+                    src="{{ asset('') }}assets/images/bitc.png"><span data-v-672149cf="">@lang('Assets')</span>
             </div>
         </a>
 
         <a href="{{ route('user.profile') }}">
             <div data-v-672149cf="" class="item"><img data-v-672149cf=""
-                    src="{{ asset('') }}assets/images/usericon.png" style="filter:brightness(0.9) invert(10)"><span
+                    src="{{ asset('') }}assets/images/usericon.png"><span
                     data-v-672149cf="">@lang('Profile')</span></div>
         </a>
     </div>
@@ -86,7 +86,7 @@
         link.addEventListener('click', function () {
             // Reset all spans to the original color
             document.querySelectorAll('.main-footer .item span').forEach(span => {
-                span.style.color = '#d5d4da';
+                span.style.color = '#2dd4bf';
             });
             // Change the color of the span within the clicked link to black
             this.querySelector('item a').style.color = '#000';

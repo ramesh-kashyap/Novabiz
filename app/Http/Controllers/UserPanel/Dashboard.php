@@ -89,8 +89,7 @@ class Dashboard extends Controller
               // Update profit
               // Update contract status and profit
               $contract->c_status = -1;
-              $contract->save();
-      
+              $contract->save();      
               $ref = $contract->c_ref;
               $user_id = $user->id;
               
@@ -124,7 +123,6 @@ class Dashboard extends Controller
 {
     $user = Auth::user();
     date_default_timezone_set("Asia/Kolkata");
-
     $pendingTrade = \DB::table('contract')->where('user_id', $user->id)->where('c_status', 1)->first();
     if ($pendingTrade) {
         return redirect()->route('user.quality', 'trade');
@@ -134,12 +132,10 @@ class Dashboard extends Controller
     $my_level_team = $this->my_level_team_count($user->id);
     $levels = [1, 2, 3];
     $gen_teams = [];
-
     foreach ($levels as $level) {
         $ids = $my_level_team[$level] ?? [];
         $gen_teams[$level] = User::whereIn('id', $ids)->orderBy('id', 'DESC')->get();
     }
-
     $gen_team1Active = $gen_teams[1]->where('active_status', 'Active')->count();
     $gen_team2Active = $gen_teams[2]->where('active_status', 'Active')->count();
     $gen_team3Active = $gen_teams[3]->where('active_status', 'Active')->count();
@@ -148,7 +144,7 @@ class Dashboard extends Controller
 
     $userDirect = User::where('sponsor', $user->id)->where('active_status', 'Active')->where('package', '>=', 50)->count();
     $balance = round($user->available_balance()+$user->principleBalance(), 2);
-
+    $investm = Investment::where('user_id', $user->id)->sum('amount');
     if ($balance < 50) {
         $notify[] = ['error', 'insufficient funds'];
         return redirect()->back()->withNotify($notify);
@@ -158,12 +154,17 @@ class Dashboard extends Controller
 
     // Quantifiable ROI conditions
     $quantifiable_count = 0;
-    if ($balance >= 50) $quantifiable_count = 2;
-    if ($balance >= 500 && $gen_team1Active >= 3 && $totalTeam >= 5) $quantifiable_count = 3;
-    if ($balance >= 2000 && $gen_team1Active >= 6 && $totalTeam >= 12) $quantifiable_count = 4;
-    if ($balance >= 5000 && $gen_team1Active >= 12 && $totalTeam >= 30) $quantifiable_count = 5;
-    elseif ($balance >= 8000 && $gen_team1Active >= 25 && $totalTeam >= 60) $quantifiable_count = 6;
-
+    if ($balance >= 8000) {
+    $quantifiable_count = 6;
+} elseif ($balance >= 5000) {
+    $quantifiable_count = 5;
+} elseif ($balance >= 2000) {
+    $quantifiable_count = 4;
+} elseif ($balance >= 500) {
+    $quantifiable_count = 3;
+} elseif ($balance >= 50) {
+    $quantifiable_count = 2;
+}
     if ($todaysRoi >= $quantifiable_count) {
         return redirect()->route('user.quality', 'notrade');
     }
@@ -200,10 +201,10 @@ class Dashboard extends Controller
 
     $idx = 1;
     if ($u_str >= 50) $idx = 1;
-    if ($u_str >= 500 && $gen_team1Active >= 3 && $totalTeam >= 5) $idx = 2;
-    if ($u_str >= 2000 && $gen_team1Active >= 6 && $totalTeam >= 12) $idx = 5;
-    if ($u_str >= 5000 && $gen_team1Active >= 12 && $totalTeam >= 30) $idx = 6;
-    if ($u_str >= 8000 && $gen_team1Active >= 25 && $totalTeam >= 60) $idx = 7;
+    if ($u_str >= 500) $idx = 2;
+    if ($u_str >= 2000) $idx = 5;
+    if ($u_str >= 5000) $idx = 6;
+    if ($u_str >= 8000) $idx = 7;
 
     $zero_arr = ["eth", "doge", "btc", "btc", "bnb", "btc", "eth", "eth", "btc", "btc", "bnb", "btc", "eth", "btc", "eth", "car"];
     $v_index = $trade_index_data->v_index;
@@ -410,7 +411,7 @@ class Dashboard extends Controller
         $user=Auth::user();
         // $transaction_data = Activitie::where('user_id',$user->id)->orderBy('id', 'desc')->get();
         // $this->data['activities'] = $transaction_data;
-        $userDirect = User::where('sponsor',$user->id)->where('active_status','Active')->where('package','>=',100)->count();
+        $userDirect = User::where('sponsor',$user->id)->where('active_status','Active')->where('package','>=',50)->count();
 
         $this->data['userDirect'] = $userDirect;
         $this->data['page'] = 'user.activities';

@@ -716,7 +716,7 @@ input, button, textarea {
 element.style {
 }
 .com-btn.on[data-v-b1cead3b] {
-    background: #e8fc9c;
+    background: #2dd4bf;
     color: #15191c;
 }
 .van-button--disabled[data-v-b1cead3b] {

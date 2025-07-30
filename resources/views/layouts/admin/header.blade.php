@@ -276,11 +276,11 @@ table#example {
                         <ul aria-expanded="false">
                             <li><a href="{{ route('admin.roi-bonus') }}">Trading  Income</a></li>
                           
-                            <li><a href="{{ route('admin.level-bonus') }}">Leadership Income</a></li>
-                            <li><a href="{{route('admin.reward-bonus')}}">Reward Bonus</a></li>
+                            <li><a href="{{ route('admin.level-bonus') }}">Level Income</a></li>
+                            <li><a href="{{route('admin.reward-bonus')}}">Reward Income</a></li>
                             <!--<li><a href="{{route('admin.booster-bonus')}}">Daily Incentive</a></li>-->
                             <li><a href="{{route('admin.club-bonus')}}">Direct  Income</a></li>
-                            <li><a href="{{route('admin.reward-achiever')}}">Salary Acheivers</a></li>
+                            <li><a href="{{route('admin.reward-achiever')}}">Salary Income</a></li>
 
                         </ul>
                     </li>

@@ -278,7 +278,7 @@
     }
 
     .logo-home {
-        width: 46px;
+        width: 80px;
         /* filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7500%) hue-rotate(245deg) brightness(104%) contrast(104%); */
     }
 
@@ -314,10 +314,10 @@
                                             <div class="back-btn back-btn2 p-0">
                                                 <a href="#">
                                                     <img class="logo-home"
-                                                        src="{{ asset('') }}assets/images/logo.png"
+                                                        src="{{ asset('') }}assets/images/favicon.png"
                                                         alt="Button-Back">
                                                 </a>
-                                                <h1>Smart Trade Core</h1>
+                                                <!-- <h1>Novabiz</h1> -->
                                             </div>
 
                                             <div class="notification-bell-main">
@@ -479,7 +479,7 @@
 }
 
 .icon-circle {
-  background-color: #ecff8a;
+  background-color: #2dd4bf;
   color: black;
   width: 40px;
   height: 40px;
@@ -564,7 +564,7 @@
                                             <div class="plus-box-text-main">
                                                 <h4 class="amigo-pluse-text">{{ siteName() }} @lang('Live Trade')
                                                 </h4>
-                                                <h4 class="unlock">@lang('Unlock Smart Trade Core premium to unlock all features.')</h4>
+                                                <h4 class="unlock">@lang('Unlock Novabiz premium to unlock all features.')</h4>
 
                                                 <button class="upgrades-btn-main">
                                                     <h6>@lang('Total Balance') </h6>
@@ -576,7 +576,7 @@
                                             </div>
                                             <div class="plus-robort-main">
                                                 <img class="plus-robort"
-                                                    src="{{ asset('') }}assets/images/wallets.png" style="width:200px"
+                                                    src="{{ asset('') }}assets/images/wallet.png" style="width:355px"
                                                     alt="plus-robort">
                                             </div>
                                         </div>
@@ -637,7 +637,7 @@
                                         <div class="crypto-assets-container">
                                         <div class="header">
                                             <h3>My crypto assets</h3>
-                                            <a href="#">View all</a>
+                                            <!-- <a href="#">View all</a> -->
                                         </div>
                                         <div class="crypto-cards">
                                             <!-- BTC Card -->
@@ -645,7 +645,7 @@
                                                 <div class="top-row">
                                                     <div>
                                                         <!-- <div class="symbol">BTC</div> -->
-                                                        <div class="name">Share DCX Quantitave Bonus</div>
+                                                        <div class="name">Share Novabiz Quantitave Bonus</div>
                                                     </div>
                                                     <!-- <div class="change up">+2.83%</div> -->
                                                 </div>

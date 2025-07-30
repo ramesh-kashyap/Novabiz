@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Your OTP from Smart Trade Core</title>
+    <title>Your OTP from Novabiz</title>
   </head>
   <body style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 30px;">
     <div style="max-width: 500px; margin: auto; background-color: #ffffff; padding: 20px 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
@@ -20,8 +20,8 @@
         Do not share this code with anyone.
       </p>
       <br />
-      <p style="font-size: 16px; color: #555;">Thanks for choosing <strong>Smart Trade Core</strong>.</p>
-      <p style="font-size: 16px; color: #888;">– Smart Trade Core Team</p>
+      <p style="font-size: 16px; color: #555;">Thanks for choosing <strong>Novabiz</strong>.</p>
+      <p style="font-size: 16px; color: #888;">– Novabiz Team</p>
     </div>
   </body>
 </html>

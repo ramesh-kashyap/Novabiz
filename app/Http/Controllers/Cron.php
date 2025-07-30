@@ -125,56 +125,64 @@ echo  $jsonData;
 
 public function generate_roi()
 {
+    $allResult = Contract::where('c_status', '-1')->get();
+    $todays = date("Y-m-d");
 
-$allResult=Contract::where('c_status','1')->get();
-$todays=Date("Y-m-d");
-$day=Date("l");
+    if ($allResult) {
+        foreach ($allResult as $key => $contract) {
+            $userID = $contract->user_id;
 
-if ($allResult)
-{
+            // Prevent duplicate income for same day
+            $existingIncome = Income::where('invest_id', $contract->id)
+                ->where('remarks', 'Roi Income')
+                ->whereDate('ttime', $todays)
+                ->first();
 
- foreach ($allResult as $key => $contract)
- {
+            if (!$existingIncome) {
+                $userDetail = User::where('id', $userID)->where('active_status', 'Active')->first();
 
-  $userID=$contract->user_id;
-  
-  $userDetails=Income::where('invest_id',$contract->id)->where('remarks','Quantify Income')->first();
-  
-  if (!$userDetails)
-  {
-     $userDetail=User::where('id',$userID)->where('active_status','Active')->first(); 
-     
-     if($userDetail)
-     {
-        echo "ID:".$userDetail->username." Roi:".$contract->profit."<br>";
-     
-      $data['remarks'] = 'Quantify Income';
-      $data['comm'] = $contract->profit;
-      $data['amt'] = $contract->c_ref;
-      $data['invest_id']=$contract->id;
-      $data['level']=0;
-      $data['ttime'] = $contract->ttime;
-      $data['created_at'] = $contract->created_at;
-      $data['updated_at'] = $contract->updated_at;
-      $data['user_id_fk'] = $userDetail->username;
-      $data['user_id']=$userDetail->id;
-     $income = Income::create($data);   
-     }
-    
+                if ($userDetail) {
+                    // echo "ID:" . $userDetail->username . " Roi:" . $contract->profit . "<br>";
+                    // Count sponsor users
+                    $sponsorCount = User::where('sponsor', $userID)
+                        ->where('active_status', 'Active')
+                        ->count('id');
+                        echo "total sponsor".$sponsorCount;
+                    $levelPercentages = [
+                        1 => 20,
+                        2 => 15,
+                        3 => 10,
+                        4 => 5,
+                        5 => 1
+                    ];
 
+                    // Loop and give income cumulatively
+                    for ($level = 1; $level <= $sponsorCount && $level <= 5; $level++) {
+                        $percent = $levelPercentages[$level];
+                        $incomeAmount = ($contract->profit * $percent) / 100;
+                        echo "ID:" . $userDetail->username . " Roi:" . $incomeAmount . "<br>";
 
-      
-
-  }
-
- }
- 
+                        if ($incomeAmount > 0) {
+                            Income::create([
+                                'remarks' => 'Roi Income',
+                                'comm' => $incomeAmount,
+                                'amt' => $contract->profit,
+                                'invest_id' => $contract->id,
+                                'level' => $level,
+                                'ttime' => now(),
+                                'created_at' => now(),
+                                'updated_at' => now(),
+                                'user_id_fk' => $userDetail->username,
+                                'user_id' => $userDetail->id,
+                            ]);
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
-
-
-
-}
 
 
 
@@ -182,19 +190,16 @@ if ($allResult)
 public function add_reward()
 {
     $today = now()->startOfDay();
-
     // Get all users with active, approved rewards
     $userRewards = DB::table('rewards')
         ->where('status', 'Approved')
         ->where('Inactive_status', 0)
         ->get()
         ->groupBy('user_id'); // Group by user to get highest level
-
-    foreach ($userRewards as $userId => $rewardList) {
+          foreach ($userRewards as $userId => $rewardList) {
         $user = User::where('id', $userId)
             ->where('active_status', 'Active')
             ->first();
-
         if (!$user) continue;
 
         // Get the reward with the highest level (latest reward)
@@ -261,81 +266,63 @@ public function add_reward()
     }
 }
 
+public function leadership_rank()
+{
+    date_default_timezone_set("Asia/Kolkata");
+    $allUsers = User::where('active_status', 'Active')->orderBy('id', 'ASC')->cursor();
+    $levels = [
+        20     => 50,
+        50     => 75,
+        100    => 100,
+        300    => 200,
+        500    => 300,
+        1000   => 500,
+        5000   => 1500,
+        10000  => 2500,
+        25000  => 9500,
+        50000  => 15000,
+        100000 => 50000,
+        250000 => 100000,
+    ];
+    foreach ($allUsers as $user) {
+        $userID = $user->id;
+        $userName = $user->username;
+        // Get team member IDs
+        $teamIds = $this->my_level_team($userID);
+        // Count active team members
+        $totalTeamCount = User::whereIn('id', (!empty($teamIds) ? $teamIds : []))
+                              ->where('active_status', 'Active')
+                              ->count();
+        // Check all level conditions
+        foreach ($levels as $requiredCount => $rewardAmount) {
+            if ($totalTeamCount >= $requiredCount) {
+                // Check if already rewarded for this team size
+                $exists = Income::where('remarks', 'Reward Income')
+                                ->where('user_id', $userID)
+                                ->where('level', $requiredCount)
+                                ->exists();
+                if (!$exists) {
+                    // Prepare data
+                    $data = [
+                        'remarks'     => 'Reward Income',
+                        'comm'        => $rewardAmount,
+                        'amt'         => $rewardAmount,
+                        'level'       => $requiredCount,
+                        'ttime'       => date("Y-m-d"),
+                        'user_id_fk'  => $userName,
+                        'user_id'     => $userID
+                    ];
 
-  public function leadership_rank()
+                    // Insert reward
+                    Income::create($data);
 
-    {  
-
-    date_default_timezone_set("Asia/Kolkata"); 
-//   User::where('id',20)->update(['name' =>'Rameshk']);
-    $allResult=User::where('active_status','Active')->orderBy('id','ASC')->cursor();
-
-    if ($allResult) 
-    {
-       $counter=1;
-     foreach ($allResult as $key => $value) 
-     {
-      
-     $userID=$value->id;
-     $userName=$value->username;
-     $adate_date =$value->adate;
-
-      $ids=$this->my_level_team($userID);
-        
-    
-    $totalrecharge=Investment::whereIn('user_id',(!empty($ids)?$ids:array()))->where('status','Active')->sum("amount");
-  
-  
-     $require_power_bunsess=array('0','20000','40000','80000');
-     $require_bonus=array('0','50','100','400');
- 
- 
-  for($p=1;$p<4;$p++)
-      {
-        $my_gen_busniess=$require_power_bunsess[$p];
-  
-        $bonus=$require_bonus[$p];
-        
-        $check_level=Reward::where('remarks','Reward Income')->where('user_id',$userID)->where('level',$p)->count("id");
-      
-        if($check_level<=0)
-        {
-         $goalstatus=( $totalrecharge >= $my_gen_busniess? 'Achieved':'Pending');
-           if ($goalstatus=='Achieved')
-               {
-                   
-                  echo "<br>";
-          echo "ID : ".$userName."<br>";
-          echo "Level : ".$p;
-         
-    
-            $data['remarks'] = 'Reward Income';
-            $data['amount'] = $bonus;
-            $data['total_business'] = $my_gen_busniess;
-            $data['level']=$p;
-            $data['tdate'] = date("Y-m-d");
-            $data['user_id_fk'] =$userName;
-            $data['user_id']=$userID; 
-            $data['status']='Approved'; 
-          $income = Reward::firstOrCreate(['remarks' => 'Reward Bonus','level'=>$p,'user_id'=>$userID],$data);   
-          
-          
-    
-               }
-               
+                    echo "<br>ID: $userName";
+                    echo "<br>Qualified Level: $requiredCount";
+                    echo "<br>Reward: ₹$rewardAmount<br>";
+                }
+            }
         }
-
-    
-      }
- 
-   
-     $counter++;   
-     }
-    } 
-    
-    
-    
-
+    }
 }
 
 
@@ -381,30 +368,20 @@ public function add_reward()
     {  
 
     $allResult=User::where('active_status','Active')->get();
-// print_r($allResult);die;
+    // print_r($allResult);die;
     if ($allResult) 
     {
      foreach ($allResult as $key => $value) 
-     {
-      
+     {      
       $user_id=$value->id;
       $username=$value->username;
       $Power_leg=$value->power_leg;
       $Vicker_leg=$value->vicker_leg;
-      
-        // $tolteam=$this->my_level_team_count($user_id);
-
-
+    // $tolteam=$this->my_level_team_count($user_id);
       $investment=Investment::where('user_id',$user_id)->where('status','Active')->sum("amount");
-    User::where('id', $user_id)
-          ->update([
-              'package' => $investment
-            ]);
-       
+    User::where('id', $user_id)->update(['package' => $investment]);
     //   $total_team=(!empty($tolteam)?count($tolteam):0);
-     
       $directUser=User::where('sponsor',$user_id)->where('package','>=',100)->where('active_status','Active')->count();
-
      $require_power_bunsess=array('0','1','6','16','36','86','186','336');
      $require_bonus=array('0','5','30','120','220','300','700','1000');
  
@@ -476,10 +453,8 @@ public function dynamicUpiCallback(Request $request)
     try {
         $queryData = $request->query();
         Log::info('Incoming callback data: ' . json_encode($queryData));
-
         // Save raw JSON
         Activitie::create(['data' => json_encode($queryData)]);
-
         $validAddresses = [
             "0xEe5016056159387901313a415dAe2935Ea198932",
             "TJPhCR5fbJH9fS7ubEQz59FQ4hLbWd9jAh"
@@ -518,8 +493,7 @@ public function dynamicUpiCallback(Request $request)
                       
                 //   first_deposit_bonus($users->id,$amount);
                   $user_update=array('active_status'=>'Active','adate'=>Date("Y-m-d H:i:s"),'package'=>$amount);
-                User::where('id',$user->id)->update($user_update);
-                
+                  User::where('id',$user->id)->update($user_update);                
                   \DB::table('general_settings')->where('id',1)->update(['people_online'=> generalDetail()->people_online+1]);
                    \DB::table('general_settings')->where('id',1)->update(['our_investors'=> generalDetail()->our_investors+1]);
       

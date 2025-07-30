@@ -19,7 +19,7 @@ use Log;
 use Carbon\Carbon;
 use Redirect;
 use Hash;
-
+use DB;
 class WithdrawRequest extends Controller
 {
     public function index()

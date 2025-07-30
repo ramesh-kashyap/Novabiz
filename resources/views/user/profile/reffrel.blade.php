@@ -65,8 +65,8 @@
                                 src="{{asset('')}}assets/images/reffrial.png">
                             <div data-v-19974f11="" class="content">
                                 <div data-v-19974f11="" class="top_img"><img data-v-19974f11=""
-                                        src="{{asset('')}}assets/images/logo-2.png"></div>
-                                <p data-v-19974f11="">@lang("Let's pass Smart Trade Core to the world together, so everyone feels joy and reward")</p>
+                                        src="{{asset('')}}assets/images/favicon.png"></div>
+                                <p data-v-19974f11="">@lang("Let's pass Novabiz to the world together, so everyone feels joy and reward")</p>
                                 <div data-v-19974f11="" class="qr-con">
                                     <div data-v-19974f11="" title="https">
                                         <canvas width="130" height="130" style="display: none;"></canvas>

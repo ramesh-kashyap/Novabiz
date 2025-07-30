@@ -13,16 +13,14 @@
     <link rel="modulepreload" crossorigin="" href="{{ asset('') }}assets/js/vuex-MbEfqX8_.js">
     <link rel="modulepreload" crossorigin="" href="{{ asset('') }}assets/js/cryptojs-BILcvZe1.js">
     <link rel="modulepreload" crossorigin="" href="{{ asset('') }}assets/js/qrcodejs2fix-CnmRM6Pf.js">
-    <link rel="modulepreload" crossorigin=""
-        href="{{ asset('') }}assets/js/vueclipboard3-C7DdPEQF.js">
+    <link rel="modulepreload" crossorigin="" href="{{ asset('') }}assets/js/vueclipboard3-C7DdPEQF.js">
     <link rel="modulepreload" crossorigin="" href="{{ asset('') }}assets/js/uaParserJs-QZjeYS1Z.js">
     <link rel="modulepreload" crossorigin="" href="{{ asset('') }}assets/js/vuerouter-7dy5tY0D.js">
     <link rel="modulepreload" crossorigin="" href="{{ asset('') }}assets/js/axios-Cm0UX6qg.js">
     <link rel="modulepreload" crossorigin="" href="{{ asset('') }}assets/js/swiper-C1TWdcvt.js">
     <link rel="modulepreload" crossorigin="" href="{{ asset('') }}assets/js/bignumberjs-DOH-f-tm.js">
     <link rel="modulepreload" crossorigin="" href="{{ asset('') }}assets/js/validator-DnYg83Z5.js">
-    <link rel="modulepreload" crossorigin=""
-        href="{{ asset('') }}assets/js/vanttouchemulator-Cv_in60N.js">
+    <link rel="modulepreload" crossorigin="" href="{{ asset('') }}assets/js/vanttouchemulator-Cv_in60N.js">
     <link rel="stylesheet" crossorigin="" href="{{ asset('') }}assets/css/index-CFWvmehk.css">
     <link rel="modulepreload" as="script" crossorigin=""
         href="{{ asset('') }}assets/js/PageScroll-CWe5U2pE.js">
@@ -125,7 +123,7 @@
     .tabs .tab.first[data-v-6a9399e1] {
         border-radius: .44rem;
         border: .02rem solid #7A7A78;
-        background: #e8fc9c;
+        background: #2dd4bf;
         position: relative;
         color: #15191c;
         text-align: center;
@@ -218,7 +216,7 @@
 
                                         <!-- Radio button for USDT TRC20 -->
 
-   <input type="hidden" id="chargeAmt" value="{{ $chargeAmt }}">
+                                      <input type="hidden" id="chargeAmt" value="{{ $chargeAmt }}">
                                     </div>
                                 </div>                                 
                             </div>
@@ -238,14 +236,10 @@
                                 <div data-v-c654d101="" class="inp-con">
                                     <div data-v-c654d101="" class="van-cell van-field textarea"
                                         modelmodifiers="[object Object]">
-                                        <!---->
-                                        <!---->
                                         <div class="van-cell__value van-field__value">
                                             <div class="van-field__body">
-                                                <input data-v-0a0a182e="" type="number" min="10" name="amount"
-                                                    id="pkg_amount" required="" placeholder="Request Amount"
-                                                    class="van-field__control" style="height: 18px;">
-
+                                                <input data-v-0a0a182e="" type="number" min="20" name="amount" id="pkg_amount" required=""
+                                                 placeholder="Request Amount" class="van-field__control" style="height: 18px;">
                                             </div>
                                         </div>
                                     </div>

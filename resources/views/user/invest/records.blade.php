@@ -115,7 +115,7 @@
                     position: relative;
                     overflow: scroll;
                 }.tabs-con[data-v-38c4ffa9] .van-tab--active {
-    color: #e8fc9c;
+    color: #2dd4bf;
     text-align: center;
     font-family: PingFang SC;
     font-size: .28rem;
@@ -124,7 +124,7 @@
     line-height: normal;
     border-radius: .44rem;
     border: .02rem solid #7a7a78;
-    background: #e8fc9c;
+    background: #2dd4bf;
 }
                     </style>
             <div data-v-e85f0186="" class="page-container">

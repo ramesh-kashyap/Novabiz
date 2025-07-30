@@ -14,7 +14,7 @@
                             <div class="tab-pane fade show active" id="price" role="tabpanel" tabindex="0">
                                 <div class="recent-contact pb-2 pt-3">
                                     
-                                         <form action="{{ route('user.activitiesBonus') }}" method="GET" style="    width: 100%;">
+                                    <form action="{{ route('user.activitiesBonus') }}" method="GET" style="    width: 100%;">
                                         <div class="row">
                                             <div class="col-xl-4">
                                                 <div class="form-group mb-3">

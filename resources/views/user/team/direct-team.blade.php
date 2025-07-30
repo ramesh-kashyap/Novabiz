@@ -278,7 +278,7 @@
 }
 
 .search-button {
-  background-color: #e8fc9c;
+  background-color: #2dd4bf;
   color: #15191c;
   border: none;
   width: 50px;

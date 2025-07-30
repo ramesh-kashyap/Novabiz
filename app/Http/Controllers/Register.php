@@ -116,11 +116,11 @@ class Register extends Controller
             $registered_user_id = $user_data['id'];
             // $user = User::find($registered_user_id);
             Auth::loginUsingId($registered_user_id);
-             addNotification($registered_user_id, 'Welcome to Smart Trade Core', 'Start exploring, earn rewards, and connect with others. We’re here if you need help. Let’s grow together.Our team is here for help if you need any assistance.Thank you for joining us, and we look forward to your success!');
+             addNotification($registered_user_id, 'Welcome to Novabiz', 'Start exploring, earn rewards, and connect with others. We’re here if you need help. Let’s grow together.Our team is here for help if you need any assistance.Thank you for joining us, and we look forward to your success!');
          addNotification(
             $user->id,
             'Referral Joined',
-            "Dear Member, thank you for inviting your friend {$data['name']}! They've successfully joined the Smart Trade Core team. Keep guiding them — let’s grow together!");
+            "Dear Member, thank you for inviting your friend {$data['name']}! They've successfully joined the Novabiz team. Keep guiding them — let’s grow together!");
 
             return redirect()->route('home');
             //  return redirect()->route('register_sucess')->with('messages', $user);

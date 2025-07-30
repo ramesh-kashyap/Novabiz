@@ -12,8 +12,6 @@ class BonusController extends Controller
 {
     public function roi_bonus(Request $request)
     {
-
-
            $limit = $request->limit ? $request->limit :  paginationLimit();
             $status = $request->status ? $request->status : null;
             $search = $request->search ? $request->search : null;
@@ -38,9 +36,6 @@ class BonusController extends Controller
                 $this->data['search'] = $search;
                 $this->data['page'] = 'admin.bonus.roi-bonus';
                 return $this->admin_dashboard();
-
-
-
     }
 
     public function level_bonus(Request $request)
@@ -50,7 +45,7 @@ class BonusController extends Controller
            $limit = $request->limit ? $request->limit :  paginationLimit();
             $status = $request->status ? $request->status : null;
             $search = $request->search ? $request->search : null;
-            $notes = Income::where('remarks','Quantify Level Income')->orderBy('id', 'DESC');
+            $notes = Income::where('remarks','Level Income')->orderBy('id', 'DESC');
            if($search <> null && $request->reset!="Reset"){
             $notes = $notes->where(function($q) use($search){
               $q->Where('rname', 'LIKE', '%' . $search . '%')
@@ -181,7 +176,7 @@ class BonusController extends Controller
            $limit = $request->limit ? $request->limit :  paginationLimit();
             $status = $request->status ? $request->status : null;
             $search = $request->search ? $request->search : null;
-            $notes = Income::where('remarks','Leadership Ranks and Rewards')->orderBy('id', 'DESC');
+            $notes = Income::where('remarks','Reward Income')->orderBy('id', 'DESC');
            if($search <> null && $request->reset!="Reset"){
             $notes = $notes->where(function($q) use($search){
               $q->Where('rname', 'LIKE', '%' . $search . '%')

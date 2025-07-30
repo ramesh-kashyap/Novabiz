@@ -70,7 +70,7 @@
 </head>
 <style>
     .item .item-top .right .btn.processing[data-v-d3d46c3f] {
-        background: #85f;
+        background: #2dd4bf;
         color: #fff;
     }
 </style>
@@ -154,8 +154,8 @@
             <div data-v-e85f0186="" class="headers">
                 <div data-v-54adc729="" data-v-e85f0186="" class="inside-header">
                     <div data-v-54adc729="" class="left">
-                        <div data-v-54adc729="" class="back"> <a href="{{ route('user.dashboard') }}"><img
-                                    data-v-54adc729=""
+                        <div data-v-54adc729="" class="back"> <a href="{{ route('user.dashboard') }}">
+                            <img data-v-54adc729=""
                                     src="data:image/png;base64,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"
                                     class="icon"></a> </div>
                     </div>
@@ -181,40 +181,121 @@
                                         <div class="van-pull-refresh__head" style="height: 100px;"></div>
                                         <div data-v-3aad496f="" role="feed" class="van-list" aria-busy="false">
                                             <div data-v-d3d46c3f="" data-v-6a9399e1="" class="list">
-<br>
-                                                <?php if(is_array($level_income) || is_object($level_income)){ ?>
-
-                                                <?php
-                                                date_default_timezone_set('UTC');
-                                                $cnt = 0; ?>
-                                                @foreach ($level_income as $value)
-                                                    <div data-v-01110b5f="" class="item">
-                                                        <div data-v-01110b5f="" class="left">
-                                                            <div data-v-01110b5f="" class="type">
-                                                                {{ $value->remarks }}</div>
-                                                            <div data-v-01110b5f="" class="time">
-                                                                {{ date('D, d M Y H:i:s', strtotime($value->created_at)) }}
-                                                            </div>
+                                                    <br>                                               
+                                                <div data-v-d3d46c3f="" class="item">
+                                                    <div data-v-d3d46c3f="" class="item-top">
+                                                        <div data-v-d3d46c3f="" class="left">
+                                                            <div data-v-d3d46c3f="" class="title">@lang('Invite 20 Team Members and Earn $50 in Rewards')</div>
+                                                            <p data-v-d3d46c3f="">@lang("Once your total team size reaches 20 members, you’ll be rewarded with $50. This milestone is a great start in growing your network and unlocking future bonuses.")</p>
                                                         </div>
-
-                                                        <div data-v-01110b5f="" class="right">
-                                                            <div data-v-01110b5f="" class="amount">
-                                                                {{ $value->comm }} USDT</div>
-                                                            <div data-v-01110b5f="" class="status completed">
-                                                                completed<!----></div>
-                                                        </div>
+                                                        <div data-v-d3d46c3f="" class="right"><span data-v-d3d46c3f=""
+                                                                class="btn processing">"In Progress"</span></div>
                                                     </div>
-                                                @endforeach
-
-                                                <?php }?>
-
-
+                                                    </div>
+                                                    <!---->
+                                                    <div data-v-d3d46c3f="" class="item">
+                                                    <div data-v-d3d46c3f="" class="item-top">
+                                                        <div data-v-d3d46c3f="" class="left">
+                                                            <div data-v-d3d46c3f="" class="title">@lang('Invite 50 Team Members and Earn $75 in Rewards')</div>
+                                                            <p data-v-d3d46c3f="">@lang("When your team grows to 50 members, you’ll receive a $75 reward. Continue building your network and enjoy increased incentives.")</p>
+                                                        </div>
+                                                        <div data-v-d3d46c3f="" class="right"><span data-v-d3d46c3f=""
+                                                                class="btn processing">"In Progress"</span></div>
+                                                    </div>
+                                                    </div>
+                                                    <!---->
+                                                    <div data-v-d3d46c3f="" class="item">
+                                                    <div data-v-d3d46c3f="" class="item-top">
+                                                        <div data-v-d3d46c3f="" class="left">
+                                                            <div data-v-d3d46c3f="" class="title">@lang('Invite 100 Team Members and Earn $100 in Rewards')</div>
+                                                            <p data-v-d3d46c3f="">@lang("Reach 100 team members to earn a $100 reward. Your expanding team is a sign of trust and influence—keep it going!")</p>
+                                                        </div>
+                                                        <div data-v-d3d46c3f="" class="right"><span data-v-d3d46c3f=""
+                                                                class="btn processing">"In Progress"</span></div>
+                                                    </div>
+                                                    </div>
+                                                    <!---->
+                                                    <div data-v-d3d46c3f="" class="item">
+                                                    <div data-v-d3d46c3f="" class="item-top">
+                                                        <div data-v-d3d46c3f="" class="left">
+                                                            <div data-v-d3d46c3f="" class="title">@lang('Invite 300 Team Members and Earn $200 in Rewards')</div>
+                                                            <p data-v-d3d46c3f="">@lang("Build your team to 300 members and receive a $200 reward. Your leadership is making an impact—this is just the beginning.")</p>
+                                                        </div>
+                                                        <div data-v-d3d46c3f="" class="right"><span data-v-d3d46c3f=""
+                                                                class="btn processing">"In Progress"</span></div>
+                                                    </div>
+                                                    </div>
+                                                    <!---->
+                                                    <div data-v-d3d46c3f="" class="item">
+                                                    <div data-v-d3d46c3f="" class="item-top">
+                                                        <div data-v-d3d46c3f="" class="left">
+                                                            <div data-v-d3d46c3f="" class="title">@lang('Invite 500 Team Members and Earn $300 in Rewards')</div>
+                                                            <p data-v-d3d46c3f="">@lang("Once your team reaches 500 members, you’ll unlock a $300 bonus. Stay consistent and keep inviting to reach higher goals.")</p>
+                                                        </div>
+                                                        <div data-v-d3d46c3f="" class="right"><span data-v-d3d46c3f=""
+                                                                class="btn processing">"In Progress"</span></div>
+                                                    </div>
+                                                    </div>
+                                                    <!---->
+                                                    <div data-v-d3d46c3f="" class="item">
+                                                    <div data-v-d3d46c3f="" class="item-top">
+                                                        <div data-v-d3d46c3f="" class="left">
+                                                            <div data-v-d3d46c3f="" class="title">@lang('Invite 1,000 Team Members and Earn $500 in Rewards')</div>
+                                                            <p data-v-d3d46c3f="">@lang("Once you reach 1,000 members, you’ll earn $500. This milestone reflects your dedication and ability to build influence at scale.")</p>
+                                                        </div>
+                                                        <div data-v-d3d46c3f="" class="right"><span data-v-d3d46c3f=""
+                                                                class="btn processing">"In Progress"</span></div>
+                                                    </div>
+                                                    </div>
+                                                    <!---->
+                                                    <div data-v-d3d46c3f="" class="item">
+                                                    <div data-v-d3d46c3f="" class="item-top">
+                                                        <div data-v-d3d46c3f="" class="left">
+                                                            <div data-v-d3d46c3f="" class="title">@lang('Invite 5,000 Team Members and Earn $1,500 in Rewards')</div>
+                                                            <p data-v-d3d46c3f="">@lang("Achieve a massive team of 5,000 members and get rewarded with $1,500. You’ve become a true leader with an impressive network.")</p>
+                                                        </div>
+                                                        <div data-v-d3d46c3f="" class="right"><span data-v-d3d46c3f=""
+                                                                class="btn processing">"In Progress"</span></div>
+                                                    </div>
+                                                    </div>
+                                                    <!---->
+                                                    <div data-v-d3d46c3f="" class="item">
+                                                    <div data-v-d3d46c3f="" class="item-top">
+                                                        <div data-v-d3d46c3f="" class="left">
+                                                            <div data-v-d3d46c3f="" class="title">@lang('Invite 10,000 Team Members and Earn $2,500 in Rewards')</div>
+                                                            <p data-v-d3d46c3f="">@lang("Grow your team to 10,000 members and unlock a $2,500 reward. Your leadership and consistency are driving incredible growth.")</p>
+                                                        </div>
+                                                        <div data-v-d3d46c3f="" class="right"><span data-v-d3d46c3f=""
+                                                                class="btn processing">"In Progress"</span></div>
+                                                    </div>
+                                                    </div>
+                                                    <!---->
+                                                    <div data-v-d3d46c3f="" class="item">
+                                                    <div data-v-d3d46c3f="" class="item-top">
+                                                        <div data-v-d3d46c3f="" class="left">
+                                                            <div data-v-d3d46c3f="" class="title">@lang('Invite 25,000 Team Members and Earn $7,500 in Rewards')</div>
+                                                            <p data-v-d3d46c3f="">@lang("Once your network hits 25,000 members, you’ll receive a $7,500 reward. You’re now in the top tier of community builders.")</p>
+                                                        </div>
+                                                        <div data-v-d3d46c3f="" class="right"><span data-v-d3d46c3f=""
+                                                                class="btn processing">"In Progress"</span></div>
+                                                    </div>
+                                                    </div>
+                                                    <!---->
+                                                    <div data-v-d3d46c3f="" class="item">
+                                                    <div data-v-d3d46c3f="" class="item-top">
+                                                        <div data-v-d3d46c3f="" class="left">
+                                                            <div data-v-d3d46c3f="" class="title">@lang('Invite 50,000 Team Members and Earn $15,000 in Rewards')</div>
+                                                            <p data-v-d3d46c3f="">@lang("Reach the ultimate milestone of 50,000 team members and get a $15,000 reward. Your success is legendary—keep inspiring others.")</p>
+                                                        </div>
+                                                        <div data-v-d3d46c3f="" class="right"><span data-v-d3d46c3f=""
+                                                                class="btn processing">"In Progress"</span></div>
+                                                    </div>
+                                                    </div>
+                                                    <!---->
 
                                             </div>
                                             <!---->
-                                            <div class="van-list__finished-text"   style="margin-bottom: 30em;"> {{ $level_income->withQueryString()->links() }}
-                                               
-                                            </div>
+                                           
                                             <!---->
                                             <div class="van-list__placeholder"></div>
                                         </div>
