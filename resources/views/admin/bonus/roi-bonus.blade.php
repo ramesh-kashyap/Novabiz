@@ -8,7 +8,7 @@
 				<div class="row page-titles">
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item active"><a href="javascript:void(0)">Profit Summery </a></li>
-						<li class="breadcrumb-item"><a href="javascript:void(0)">Roi Bonus</a></li>
+						<li class="breadcrumb-item"><a href="javascript:void(0)">Quantify Income</a></li>
 					</ol>
                 </div>
                 <!-- row -->
@@ -18,7 +18,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Roi Bonus</h4>
+                                <h4 class="card-title">Quantify Income</h4>
                             </div>
                             <div class="card-body">
                                 
@@ -86,9 +86,10 @@
                                                       <td> {{currency()}}  {{$value->amt}} </td>
                                                       <td>  {{currency()}}   {{$value->comm}} </td>
                                                       <td>{{$value->created_at}}</td>
+                                                                                                           <td>{{$value->remarks}}</td>
+
                 
-                                                      <td><?php echo "Trading Profit";?></td>
-                
+                                                
                 
                 
                                                   </tr>

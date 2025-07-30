@@ -152,8 +152,8 @@
 								<div class="card">
 									<div class="card-body d-flex align-items-center justify-content-between">
 										<div class="menu">
-											<span class="font-w500 fs-16 d-block mb-2">Trading Income</span>
-											<h2>{{currency()}}  {{  number_format((\App\Models\Contract::where('c_status','-1')->sum('profit')),2)   }}  </h2>
+											<span class="font-w500 fs-16 d-block mb-2">Quantify Income</span>
+											<h2>{{currency()}} {{  number_format((\App\Models\Income::where('remarks','Quantify Income')->sum('comm')),2)   }} </h2>
 										</div>	
 										<div class="d-inline-block position-relative donut-chart-sale">
 											
@@ -167,7 +167,7 @@
 								<div class="card">
 									<div class="card-body d-flex align-items-center justify-content-between">
 										<div class="menu">
-											<span class="font-w500 fs-16 d-block mb-2">Leadership Income</span>
+											<span class="font-w500 fs-16 d-block mb-2">Level Income</span>
 											<h2>{{currency()}} {{  number_format((\App\Models\Income::where('remarks','Quantify Level Income')->sum('comm')),2)   }} </h2>
 										</div>	
 										<div class="d-inline-block position-relative donut-chart-sale">
@@ -182,8 +182,8 @@
 								<div class="card">
 									<div class="card-body d-flex align-items-center justify-content-between">
 										<div class="menu">
-											<span class="font-w500 fs-16 d-block mb-2">Task Income</span>
-											<h2>{{currency()}} {{  number_format((\App\Models\Income::where('remarks','Task Income')->sum('comm')),2)   }} </h2>
+											<span class="font-w500 fs-16 d-block mb-2">Reward Income</span>
+											<h2>{{currency()}} {{  number_format((\App\Models\Income::where('remarks','Reward Income')->sum('comm')),2)   }} </h2>
 										</div>	
 										<div class="d-inline-block position-relative donut-chart-sale">
 										

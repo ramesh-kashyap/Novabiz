@@ -169,11 +169,11 @@
                             
                                    <div data-v-6a9399e1="" class="task-list-con">
                             <div data-v-6a9399e1="" class="tabs">
-                                <div data-v-6a9399e1="" class="tab "><span data-v-6a9399e1="">  <a href="{{ route('user.activities') }}">Long-Term
+                                <div data-v-6a9399e1="" class="tab "><span data-v-6a9399e1="">  <a href="{{ route('user.activities') }}">Salary
                                         Task </a></span>
                                 </div>
                                 <div data-v-6a9399e1="" class="tab first"> <a href="{{ route('user.level-income') }}" style="color: #fff">
-                                        <span data-v-6a9399e1="">Daily Tasks </a></span></div>
+                                        <span data-v-6a9399e1="">Team Tasks </a></span></div>
                             </div>
                             <div data-v-6a9399e1="" class="task-con first">
                                 <div data-v-3aad496f="" data-v-6a9399e1="" class="van-pull-refresh van-refresh-com">
@@ -189,7 +189,7 @@
                                                             <p data-v-d3d46c3f="">@lang("Once your total team size reaches 20 members, you’ll be rewarded with $50. This milestone is a great start in growing your network and unlocking future bonuses.")</p>
                                                         </div>
                                                         <div data-v-d3d46c3f="" class="right"><span data-v-d3d46c3f=""
-                                                                class="btn processing">"In Progress"</span></div>
+                                                                class="btn processing"> {{($teamCount>=20)?"Completed":"In Progress"}}</span></div>
                                                     </div>
                                                     </div>
                                                     <!---->
@@ -200,7 +200,7 @@
                                                             <p data-v-d3d46c3f="">@lang("When your team grows to 50 members, you’ll receive a $75 reward. Continue building your network and enjoy increased incentives.")</p>
                                                         </div>
                                                         <div data-v-d3d46c3f="" class="right"><span data-v-d3d46c3f=""
-                                                                class="btn processing">"In Progress"</span></div>
+                                                                class="btn processing">{{($teamCount>=50)?"Completed":"In Progress"}}</span></div>
                                                     </div>
                                                     </div>
                                                     <!---->
@@ -211,7 +211,7 @@
                                                             <p data-v-d3d46c3f="">@lang("Reach 100 team members to earn a $100 reward. Your expanding team is a sign of trust and influence—keep it going!")</p>
                                                         </div>
                                                         <div data-v-d3d46c3f="" class="right"><span data-v-d3d46c3f=""
-                                                                class="btn processing">"In Progress"</span></div>
+                                                                class="btn processing">{{($teamCount>=100)?"Completed":"In Progress"}}</span></div>
                                                     </div>
                                                     </div>
                                                     <!---->
@@ -222,7 +222,7 @@
                                                             <p data-v-d3d46c3f="">@lang("Build your team to 300 members and receive a $200 reward. Your leadership is making an impact—this is just the beginning.")</p>
                                                         </div>
                                                         <div data-v-d3d46c3f="" class="right"><span data-v-d3d46c3f=""
-                                                                class="btn processing">"In Progress"</span></div>
+                                                                class="btn processing">{{($teamCount>=300)?"Completed":"In Progress"}}</span></div>
                                                     </div>
                                                     </div>
                                                     <!---->
@@ -233,7 +233,7 @@
                                                             <p data-v-d3d46c3f="">@lang("Once your team reaches 500 members, you’ll unlock a $300 bonus. Stay consistent and keep inviting to reach higher goals.")</p>
                                                         </div>
                                                         <div data-v-d3d46c3f="" class="right"><span data-v-d3d46c3f=""
-                                                                class="btn processing">"In Progress"</span></div>
+                                                                class="btn processing">{{($teamCount>=500)?"Completed":"In Progress"}}</span></div>
                                                     </div>
                                                     </div>
                                                     <!---->
@@ -244,7 +244,7 @@
                                                             <p data-v-d3d46c3f="">@lang("Once you reach 1,000 members, you’ll earn $500. This milestone reflects your dedication and ability to build influence at scale.")</p>
                                                         </div>
                                                         <div data-v-d3d46c3f="" class="right"><span data-v-d3d46c3f=""
-                                                                class="btn processing">"In Progress"</span></div>
+                                                                class="btn processing">{{($teamCount>=1000)?"Completed":"In Progress"}}</span></div>
                                                     </div>
                                                     </div>
                                                     <!---->
@@ -255,7 +255,7 @@
                                                             <p data-v-d3d46c3f="">@lang("Achieve a massive team of 5,000 members and get rewarded with $1,500. You’ve become a true leader with an impressive network.")</p>
                                                         </div>
                                                         <div data-v-d3d46c3f="" class="right"><span data-v-d3d46c3f=""
-                                                                class="btn processing">"In Progress"</span></div>
+                                                                class="btn processing">{{($teamCount>=5000)?"Completed":"In Progress"}}</span></div>
                                                     </div>
                                                     </div>
                                                     <!---->
@@ -266,7 +266,7 @@
                                                             <p data-v-d3d46c3f="">@lang("Grow your team to 10,000 members and unlock a $2,500 reward. Your leadership and consistency are driving incredible growth.")</p>
                                                         </div>
                                                         <div data-v-d3d46c3f="" class="right"><span data-v-d3d46c3f=""
-                                                                class="btn processing">"In Progress"</span></div>
+                                                                class="btn processing">{{($teamCount>=10000)?"Completed":"In Progress"}}</span></div>
                                                     </div>
                                                     </div>
                                                     <!---->
@@ -277,7 +277,7 @@
                                                             <p data-v-d3d46c3f="">@lang("Once your network hits 25,000 members, you’ll receive a $7,500 reward. You’re now in the top tier of community builders.")</p>
                                                         </div>
                                                         <div data-v-d3d46c3f="" class="right"><span data-v-d3d46c3f=""
-                                                                class="btn processing">"In Progress"</span></div>
+                                                                class="btn processing">{{($teamCount>=25000)?"Completed":"In Progress"}}</span></div>
                                                     </div>
                                                     </div>
                                                     <!---->
@@ -288,7 +288,7 @@
                                                             <p data-v-d3d46c3f="">@lang("Reach the ultimate milestone of 50,000 team members and get a $15,000 reward. Your success is legendary—keep inspiring others.")</p>
                                                         </div>
                                                         <div data-v-d3d46c3f="" class="right"><span data-v-d3d46c3f=""
-                                                                class="btn processing">"In Progress"</span></div>
+                                                                class="btn processing">{{($teamCount>=50000)?"Completed":"In Progress"}}</span></div>
                                                     </div>
                                                     </div>
                                                     <!---->

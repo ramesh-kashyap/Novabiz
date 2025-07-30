@@ -786,7 +786,7 @@ element.style {
                 <div data-v-ebfcdf27="" class="scroll">
                     <div data-v-7dfac6f0="" class="user">
                         <div data-v-7dfac6f0="" class="welcome-text"><img data-v-7dfac6f0=""
-                                src="{{asset('')}}assets/images/logo-2.png" alt="">
+                                src="{{ asset('') }}assets/images/favicon.png" alt="">
                              <div data-v-7dfac6f0="">
                                 <h2 data-v-7dfac6f0="">Create An Account</h2>
                                 <p data-v-7dfac6f0="" style="font-size: smaller;">Start with us new journey</p>

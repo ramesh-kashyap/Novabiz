@@ -364,87 +364,84 @@ public function leadership_rank()
 
 
 
- public function reward_bonus()
-    {  
+public function reward_bonus()
+{
+    $allUsers = User::where('active_status', 'Active')->get();
 
-    $allResult=User::where('active_status','Active')->get();
-    // print_r($allResult);die;
-    if ($allResult) 
-    {
-     foreach ($allResult as $key => $value) 
-     {      
-      $user_id=$value->id;
-      $username=$value->username;
-      $Power_leg=$value->power_leg;
-      $Vicker_leg=$value->vicker_leg;
-    // $tolteam=$this->my_level_team_count($user_id);
-      $investment=Investment::where('user_id',$user_id)->where('status','Active')->sum("amount");
-    User::where('id', $user_id)->update(['package' => $investment]);
-    //   $total_team=(!empty($tolteam)?count($tolteam):0);
-      $directUser=User::where('sponsor',$user_id)->where('package','>=',100)->where('active_status','Active')->count();
-     $require_power_bunsess=array('0','1','6','16','36','86','186','336');
-     $require_bonus=array('0','5','30','120','220','300','700','1000');
- 
-     
-     for($p=1;$p<8;$p++)
-      {
-        $my_gen_busniess=$require_power_bunsess[$p];
-  
-        $bonus=$require_bonus[$p];
- 
-       
-        // $power_leg=$my_gen_busniess*50/100;
-        // $vicker_leg=$my_gen_busniess*50/100;
-        
-        // $Require_power_leg=$my_gen_busniess*60/100;
-        // $Require_vicker_leg=$my_gen_busniess*40/100;
-        
-        $check_level=Income::where('remarks','Task Income')->where('user_id',$user_id)->where('level',$p)->count("id");
-      
-        if($check_level<=0)
-        {
-         $goalstatus=( $directUser >= $my_gen_busniess? 'Achieved':'Pending');
-          if ($goalstatus=='Achieved')
-              {
-                   
-                  echo "<br>";
-          echo "ID : ".$username."<br>";
-          echo "Level : ".$p;
-          User::where('id', $user_id)
-          ->update([
-              'rank' => $p
-            ]);
-            
-            $data['remarks'] = 'Task Income';
-            $data['comm'] = $bonus;
-            $data['amt'] = $bonus;
-            $data['level']=$p;
-            $data['ttime'] = date("Y-m-d");
-            $data['user_id_fk'] =$username;
-            $data['user_id']=$user_id; 
-          $income = Income::firstOrCreate(['remarks' => 'Task Income','level'=>$p,'user_id'=>$user_id],$data);   
-    
-    
-              }
-               
+    $rankIncomes = [
+        1 => 50,
+        2 => 100,
+        3 => 150,
+        4 => 500,
+        5 => 1000,
+        6 => 1500,
+        7 => 2500,
+    ];
+
+    foreach ($allUsers as $user) {
+        $user_id = $user->id;
+        $username = $user->username;
+        $power_leg = $user->power_leg;
+        $vicker_leg = $user->vicker_leg;
+
+        // Update package (total investment)
+        $investment = Investment::where('user_id', $user_id)
+                                ->where('status', 'Active')
+                                ->sum("amount");
+
+        User::where('id', $user_id)->update(['package' => $investment]);
+
+        $currentRank = 0;
+
+        // ✅ Must first qualify for V1
+        if ($power_leg >= 2500 && $vicker_leg >= 2500) {
+            $currentRank = 1;
+
+            // ✅ Then check for higher ranks V2 to V7
+            $directUsers = User::where('sponsor', $user_id)
+                               ->where('active_status', 'Active')
+                               ->get();
+
+            for ($rank = 2; $rank <= 7; $rank++) {
+                $requiredRank = $rank - 1;
+                $qualifiedDirects = $directUsers->where('rank', '>=', $requiredRank)->count();
+
+                if ($qualifiedDirects >= 2) {
+                    $currentRank = $rank;
+                } else {
+                    break; // Stop checking further if not qualified for this rank
+                }
+            }
         }
 
-          
-      }
-             
-     
-      
-     
-     }
-    } 
-    
-    
-   
-   
-     
+        // ✅ Update user rank in DB
+        if ($currentRank > 0) {
+            User::where('id', $user_id)->update(['rank' => $currentRank]);
+        }
 
+        // ✅ Distribute Task Income for each qualified rank
+        for ($i = 1; $i <= $currentRank; $i++) {
+            $existingPayments = Income::where('user_id', $user_id)
+                                      ->where('remarks', 'Task Income')
+                                      ->where('level', $i)
+                                      ->count();
+
+            if ($existingPayments < 12) {
+                Income::create([
+                    'remarks' => 'Salary Income',
+                    'comm' => $rankIncomes[$i],
+                    'amt' => $rankIncomes[$i],
+                    'level' => $i,
+                    'ttime' => date('Y-m-d'),
+                    'user_id_fk' => $username,
+                    'user_id' => $user_id
+                ]);
+
+                echo "✅ Task Income given to ID $username, Rank V$i, Amount {$rankIncomes[$i]}<br>";
+            }
+        }
+    }
 }
-
 
 
 

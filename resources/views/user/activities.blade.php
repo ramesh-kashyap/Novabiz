@@ -97,9 +97,9 @@
                             
                              <div data-v-6a9399e1="" class="task-list-con">
                             <div data-v-6a9399e1="" class="tabs">
-                                <div data-v-6a9399e1="" class="tab first"><span data-v-6a9399e1="">@lang('Long-Term Task')</span>
+                                <div data-v-6a9399e1="" class="tab first"><span data-v-6a9399e1="">@lang('Salary Task')</span>
                                 </div>
-                                <div data-v-6a9399e1="" class="tab"> <a href="{{route('user.level-income')}}"> <span data-v-6a9399e1="">@lang('Daily Tasks') </a></span></div>
+                                <div data-v-6a9399e1="" class="tab"> <a href="{{route('user.level-income')}}"> <span data-v-6a9399e1="">@lang('Team Tasks') </a></span></div>
                             </div>
                             <div data-v-6a9399e1="" class="task-con first">
                                 <div data-v-3aad496f="" data-v-6a9399e1="" class="van-pull-refresh van-refresh-com">
@@ -115,7 +115,7 @@
                                                             </p>
                                                         </div>
                                                         <div data-v-d3d46c3f="" class="right"><span data-v-d3d46c3f=""
-                                                                class="btn processing"> {{($userDirect>=3)?"Completed":"In Progress"}} </span></div>
+                                                                class="btn processing"> {{($userDirect>=1)?"Completed":"In Progress"}} </span></div>
                                                     </div>
                                                     <!---->
                                                 </div>
@@ -127,7 +127,7 @@
                                                             </p>
                                                         </div>
                                                         <div data-v-d3d46c3f="" class="right"><span data-v-d3d46c3f=""
-                                                                class="btn processing">{{($userDirect>=6)?"Completed":"In Progress"}}</span></div>
+                                                                class="btn processing">{{($userDirect>=2)?"Completed":"In Progress"}}</span></div>
                                                     </div>
                                                     <!---->
                                                 </div>
@@ -138,7 +138,7 @@
                                                             <p data-v-d3d46c3f="">@lang("Being a V3 member brings $150 in rewards monthly for 12 months, supporting your progress and rewarding your continued engagement with the platform.")</p>
                                                         </div>
                                                         <div data-v-d3d46c3f="" class="right"><span data-v-d3d46c3f=""
-                                                                class="btn processing">{{($userDirect>=10)?"Completed":"In Progress"}}</span></div>
+                                                                class="btn processing">{{($userDirect>=3)?"Completed":"In Progress"}}</span></div>
                                                     </div>
                                                     <!---->
                                                 </div>
@@ -149,7 +149,7 @@
                                                             <p data-v-d3d46c3f="">@lang("With V4 status, earn $500 each month over a full year. This level celebrates your higher achievements with premium and reliable rewards.")</p>
                                                         </div>
                                                         <div data-v-d3d46c3f="" class="right"><span data-v-d3d46c3f=""
-                                                                class="btn processing">{{($userDirect>=20)?"Completed":"In Progress"}}</span></div>
+                                                                class="btn processing">{{($userDirect>=4)?"Completed":"In Progress"}}</span></div>
                                                     </div>
                                                     <!---->
                                                 </div>
@@ -160,7 +160,7 @@
                                                             <p data-v-d3d46c3f="">@lang("V5 members enjoy substantial monthly earnings of $1000, reinforcing your success and leadership with dependable annual benefits.")</p>
                                                         </div>
                                                         <div data-v-d3d46c3f="" class="right"><span data-v-d3d46c3f=""
-                                                                class="btn processing">{{($userDirect>=36)?"Completed":"In Progress"}}</span></div>
+                                                                class="btn processing">{{($userDirect>=5)?"Completed":"In Progress"}}</span></div>
                                                     </div>
                                                 </div>
                                                 <!-- <div data-v-d3d46c3f="" class="item">
@@ -180,7 +180,7 @@
                                                             <p data-v-d3d46c3f="">@lang("Achieve V6 status and unlock $1500 each month for one year—designed to honor your consistent excellence and high-level contributions.")</p>
                                                         </div>
                                                         <div data-v-d3d46c3f="" class="right"><span data-v-d3d46c3f=""
-                                                                class="btn processing">{{($userDirect>=36)?"Completed":"In Progress"}}</span></div>
+                                                                class="btn processing">{{($userDirect>=6)?"Completed":"In Progress"}}</span></div>
                                                     </div>
                                                     <!---->
                                                 </div>
@@ -191,7 +191,7 @@
                                                             <p data-v-d3d46c3f="">@lang("V7 members receive a remarkable $2500 monthly, every month for 12 months—our most prestigious reward for top-tier performers.")</p>
                                                         </div>
                                                         <div data-v-d3d46c3f="" class="right"><span data-v-d3d46c3f=""
-                                                                class="btn processing">{{($userDirect>=36)?"Completed":"In Progress"}}</span></div>
+                                                                class="btn processing">{{($userDirect>=7)?"Completed":"In Progress"}}</span></div>
                                                     </div>
                                                     <!---->
                                                 </div>

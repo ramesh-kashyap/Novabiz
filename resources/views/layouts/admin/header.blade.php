@@ -110,8 +110,8 @@ table#example {
             Nav header start
         ***********************************-->
         <div class="nav-header">
-            <a href="{{asset('')}}" class="brand-logo">
-                <img src="{{asset('')}}assets/img/logo.png" style="    width: 133px;
+            <a href="{{route('admin.dashboard')}}" class="brand-logo">
+                <img src="{{ asset('') }}assets/images/favicon.png" style="    width: 133px;
                 margin: 0px auto;" alt=""/>
 
             </a>
